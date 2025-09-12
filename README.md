@@ -58,8 +58,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 Maik Lindner
-
 ---
 
 ## Deutsche Beschreibung
@@ -113,5 +111,3 @@ Beiträge, Fehlermeldungen und Feature-Wünsche sind willkommen! Schaue dafür g
 ### 📜 Lizenz
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Details findest du in der [LICENSE](LICENSE)-Datei.
-
-Copyright (c) 2025 Maik Lindner
