@@ -1,0 +1,32 @@
+{
+  "extName": {
+    "message": "Feefier - Feed Notifier"
+  },
+  "extDescription": {
+    "message": "Monitors a feed URL and sends a notification on updates."
+  },
+  "optionsTitle": {
+    "message": "Feefier Settings"
+  },
+  "optionsFeedUrlLabel": {
+    "message": "Feed URL to monitor:"
+  },
+  "optionsIntervalLabel": {
+    "message": "Check interval (in minutes):"
+  },
+  "saveButton": {
+    "message": "Save"
+  },
+  "statusSaved": {
+    "message": "Settings saved!"
+  },
+  "statusError": {
+    "message": "Please enter a valid URL and an interval (>= 1 minute)."
+  },
+  "notificationTitle": {
+    "message": "Feed Updated!"
+  },
+  "notificationBody": {
+    "message": "There are new or changed messages."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "extName": {
+    "message": "Feefier - Feed Notifier"
+  },
+  "extDescription": {
+    "message": "Überwacht eine Feed-URL und sendet eine Benachrichtigung bei Aktualisierungen."
+  },
+  "optionsTitle": {
+    "message": "Feefier Einstellungen"
+  },
+  "optionsFeedUrlLabel": {
+    "message": "Zu überwachende Feed-URL:"
+  },
+  "optionsIntervalLabel": {
+    "message": "Abfrageintervall (in Minuten):"
+  },
+  "saveButton": {
+    "message": "Speichern"
+  },
+  "statusSaved": {
+    "message": "Einstellungen gespeichert!"
+  },
+  "statusError": {
+    "message": "Bitte gib eine gültige URL und ein Intervall (>= 1 Minute) an."
+  },
+  "notificationTitle": {
+    "message": "Feed wurde aktualisiert!"
+  },
+  "notificationBody": {
+    "message": "Es gibt neue oder geänderte Nachrichten."
+  }
+}
