@@ -52,13 +52,13 @@ Your privacy is a top priority. This extension does not collect, store, or trans
 
 ### 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/[Dein-GitHub-Benutzername]/[Dein-Repo-Name]/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/maiklindner/feefier/issues).
 
 ### 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 [Dein Name]
+Copyright (c) 2025 Maik Lindner
 
 ---
 
@@ -108,7 +108,7 @@ Deine Privatsphäre hat oberste Priorität. Diese Erweiterung sammelt, speichert
 
 ### 🤝 Mitwirken
 
-Beiträge, Fehlermeldungen und Feature-Wünsche sind willkommen! Schaue dafür gerne auf der [Issues-Seite](https://github.com/[Dein-GitHub-Benutzername]/[Dein-Repo-Name]/issues) vorbei.
+Beiträge, Fehlermeldungen und Feature-Wünsche sind willkommen! Schaue dafür gerne auf der [Issues-Seite](https://github.com/maiklindner/feefier/issues) vorbei.
 
 ### 📜 Lizenz
 
