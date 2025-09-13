@@ -117,6 +117,10 @@ async function checkFeed() {
       console.log('Feed-Inhalt ist identisch zum letzten Mal.');
     }
   } catch (error) {
-    console.error('Fehler beim Verarbeiten des Feeds:', error);
+    console.error('--- FEHLER BEIM VERARBEITEN DES FEEDS ---');
+    console.error('Fehler-Objekt:', error);
+    console.error('Fehler-Nachricht:', error.message);
+    console.error('Versuchte URL:', url);
+    console.error('-----------------------------------------');
   }
 }
