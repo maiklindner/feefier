@@ -4,7 +4,7 @@
 
 **Letzte Aktualisierung:** 12. September 2025
 
-Diese Datenschutzrichtlinie beschreibt, wie die Browser-Erweiterung "Feed Notifier" (im Folgenden "die Erweiterung" genannt), entwickelt von [Dein Name], mit Daten umgeht.
+Diese Datenschutzrichtlinie beschreibt, wie die Browser-Erweiterung "Feed Notifier" (im Folgenden "die Erweiterung" genannt), entwickelt von Maik Lindner, mit Daten umgeht.
 
 Der Schutz Ihrer Privatsphäre ist uns sehr wichtig. Die Erweiterung wurde nach dem Prinzip der Datensparsamkeit entwickelt. Das bedeutet, es werden nur die Daten verarbeitet, die für die Kernfunktionalität der Erweiterung absolut notwendig sind.
 
@@ -61,7 +61,7 @@ apps@lindner.one
 
 **Last Updated:** September 12, 2025
 
-This Privacy Policy describes how the "Feed Notifier" browser extension (hereafter "the extension"), developed by [Your Name], handles data.
+This Privacy Policy describes how the "Feed Notifier" browser extension (hereafter "the extension"), developed by Maik Lindner, handles data.
 
 Protecting your privacy is very important to us. The extension was developed following the principle of data minimization. This means that only the data absolutely necessary for the core functionality of the extension is processed.
 
@@ -108,4 +108,4 @@ This Privacy Policy may be updated in the future to reflect changes in the exten
 If you have any questions about this Privacy Policy, please contact the developer:
 
 Maik Lindner
-apps@lindner.one
+dev@lindner.one
