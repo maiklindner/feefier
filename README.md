@@ -26,7 +26,7 @@ A simple and privacy-focused feed monitor for Microsoft Edge that notifies you a
 
 #### From the Microsoft Edge Add-ons Store
 
-1.  Visit the [Feed Notifier page on the Edge Add-ons store](https://microsoftedge.microsoft.com/addons) (Link will be active once published).
+1.  Visit the [FeeFier page on the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/feefier-feed-notifier/kiicjfnkejldenbnfiligmkgldlnglgm).
 2.  Click "Get" to install the extension.
 
 #### From Source (for Development)
@@ -80,7 +80,7 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für Microsoft Edge, der 
 
 #### Aus dem Microsoft Edge Add-ons Store
 
-1.  Besuche die [Feed Notifier Seite im Edge Add-ons Store](https://microsoftedge.microsoft.com/addons) (Link ist aktiv, sobald die Erweiterung veröffentlicht ist).
+1.  Besuche die [FeeFier Seite im Edge Add-ons Store](https://microsoftedge.microsoft.com/addons/detail/feefier-feed-notifier/kiicjfnkejldenbnfiligmkgldlnglgm).
 2.  Klicke auf "Abrufen", um die Erweiterung zu installieren.
 
 #### Aus dem Quellcode (für die Entwicklung)
