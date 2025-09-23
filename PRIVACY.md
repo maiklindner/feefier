@@ -51,7 +51,7 @@ Diese Datenschutzrichtlinie kann zukünftig aktualisiert werden, um Änderungen 
 Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie bitte den Entwickler:
 
 Maik Lindner
-apps@lindner.one
+dev@lindner.one
 
 ***
 
