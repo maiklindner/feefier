@@ -58,6 +58,58 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
+### 🏛️ Architecure
+
+```mermaid 
+graph LR
+    subgraph "Browser Extension (Sandbox)"
+        direction LR
+        subgraph Speicher ["Browser Storage (Persistent)"]
+            S_Sync["chrome.storage.sync <br/>(URL, Interval)"]
+            S_Local["chrome.storage.local <br/>(Feed Content)"]
+        end
+        
+        subgraph Code
+            BG["Service Worker <br/>(background.js)"]
+            OPT["Options Page <br/>(options.js)"]
+        end
+
+        subgraph "Browser APIs"
+            Alarms[chrome.alarms]
+            Notify[chrome.notifications]
+            Action["chrome.action <br/>(Icon / Badge)"]
+        end
+    end
+
+    subgraph "External World"
+        User[User]
+        Server[External Feed Server]
+    end
+
+    %% --- Workflows ---
+
+    %% 1. Configuration
+    User -- "1. Enters URL/Interval" --> OPT
+    OPT -- "2. Saves Settings" --> S_Sync
+
+    %% 2. Periodic (Automatic) Start
+    Alarms -- "3. Wakes up periodically" --> BG
+
+    %% 3. Manual Start
+    User -- "a. Clicks Icon" --> Action
+    Action -- "b. Event 'onClicked'" --> BG
+    BG -- "c. Clears Badge (setBadgeText)" --> Action
+
+    %% 4. Feed Fetch (triggered by BG after step 3 or b)
+    BG -- "4. Reads Settings" --> S_Sync
+    BG -- "5. Fetches Feed (fetch)" --> Server
+    Server -- "6. Sends Feed Data" --> BG
+    BG -- "7. Reads old content" --> S_Local
+    BG -- "8. Compares & saves new content" --> S_Local
+    BG -- "9. On change: sends notification" --> Notify
+    BG -- "10. On change: sets badge '!'" --> Action
+```
+
 ---
 
 ## Deutsche Beschreibung
@@ -111,3 +163,56 @@ Beiträge, Fehlermeldungen und Feature-Wünsche sind willkommen! Schaue dafür g
 ### 📜 Lizenz
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Details findest du in der [LICENSE](LICENSE)-Datei.
+
+### 🏛️ Architektur
+
+```mermaid
+graph LR
+    subgraph "Browser-Erweiterung (Sandbox)"
+        direction LR
+        subgraph Speicher ["Browser-Speicher (persistent)"]
+            S_Sync["chrome.storage.sync <br/>(URL, Intervall)"]
+            S_Local["chrome.storage.local <br/>(Feed-Inhalt)"]
+        end
+        
+        subgraph Code
+            BG["Service Worker <br/>(background.js)"]
+            OPT["Options-Seite <br/>(options.js)"]
+        end
+
+        subgraph Browser-APIs
+            Alarms[chrome.alarms]
+            Notify[chrome.notifications]
+            Action["chrome.action <br/>(Icon / Badge)"]
+        end
+    end
+
+    subgraph "Externe Welt"
+        User[Nutzer]
+        Server[Externer Feed-Server]
+    end
+
+    %% --- Abläufe ---
+
+    %% 1. Konfiguration
+    User -- "1. Gibt URL/Intervall ein" --> OPT
+    OPT -- "2. Speichert Einstellungen" --> S_Sync
+
+    %% 2. Periodischer (automatischer) Start
+    Alarms -- "3. Weckt periodisch auf" --> BG
+
+    %% 3. Manueller Start
+    User -- "a. Klickt Icon" --> Action
+    Action -- "b. Event 'onClicked'" --> BG
+    BG -- "c. Löscht Badge (setBadgeText)" --> Action
+
+    %% 4. Feed-Abruf (wird von BG nach Schritt 3 oder b gestartet)
+    BG -- "4. Liest Einstellungen" --> S_Sync
+    BG -- "5. Ruft Feed ab (fetch)" --> Server
+    Server -- "6. Sendet Feed-Daten" --> BG
+    BG -- "7. Liest alten Inhalt" --> S_Local
+    BG -- "8. Vergleicht & speichert neuen Inhalt" --> S_Local
+    BG -- "9. Bei Änderung: sendet Benachrichtigung" --> Notify
+    BG -- "10. Bei Änderung: setzt Badge '!'" --> Action
+```
+
