@@ -16,7 +16,10 @@
   "background": {
     "service_worker": "background.js"
   },
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "action": {
     "default_title": "__MSG_extName__",
     "default_popup": "options.html",
