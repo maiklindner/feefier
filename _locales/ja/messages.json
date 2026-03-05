@@ -1,32 +1,38 @@
 {
-    "extName": {
-        "message": "FeeFier - フィード通知"
-    },
-    "extDescription": {
-        "message": "フィードURLを監視し、更新に関する通知を送信します。"
-    },
-    "optionsTitle": {
-        "message": "FeeFier設定"
-    },
-    "optionsFeedUrlLabel": {
-        "message": "監視するフィードURL:"
-    },
-    "optionsIntervalLabel": {
-        "message": "チェック間隔（分）:"
-    },
-    "saveButton": {
-        "message": "保存"
-    },
-    "statusSaved": {
-        "message": "設定が保存されました！"
-    },
-    "statusError": {
-        "message": "有効なURLと間隔（1分以上）を入力してください。"
-    },
-    "notificationTitle": {
-        "message": "フィードが更新されました！"
-    },
-    "notificationBody": {
-        "message": "新しいメッセージまたは変更されたメッセージがあります。"
-    }
+  "extName": {
+    "message": "FeeFier - フィード通知"
+  },
+  "extDescription": {
+    "message": "フィードURLを監視し、更新に関する通知を送信します。"
+  },
+  "optionsTitle": {
+    "message": "FeeFier設定"
+  },
+  "optionsFeedUrlLabel": {
+    "message": "監視するフィードURL:"
+  },
+  "optionsIntervalLabel": {
+    "message": "チェック間隔（分）:"
+  },
+  "saveButton": {
+    "message": "保存"
+  },
+  "statusSaved": {
+    "message": "設定が保存されました！"
+  },
+  "statusError": {
+    "message": "有効なURLと間隔（1分以上）を入力してください。"
+  },
+  "notificationTitle": {
+    "message": "フィードが更新されました！"
+  },
+  "notificationBody": {
+    "message": "新しいメッセージまたは変更されたメッセージがあります。"
+  },
+  "optionsAddFeed": {
+    "message": "フィードを追加"
+  },
+  "optionsRemoveFeed": {
+    "message": "削除"
+  }
 }

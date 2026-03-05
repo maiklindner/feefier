@@ -28,5 +28,11 @@
   },
   "notificationBody": {
     "message": "Es gibt neue oder geänderte Nachrichten."
+  },
+  "optionsAddFeed": {
+    "message": "Feed hinzufügen"
+  },
+  "optionsRemoveFeed": {
+    "message": "Entfernen"
   }
 }

@@ -1,32 +1,38 @@
 {
-    "extName": {
-        "message": "FeeFier - Notificador de Feed"
-    },
-    "extDescription": {
-        "message": "Monitoriza una URL de feed y envía una notificación cuando hay actualizaciones."
-    },
-    "optionsTitle": {
-        "message": "Configuración de FeeFier"
-    },
-    "optionsFeedUrlLabel": {
-        "message": "URL del feed a monitorizar:"
-    },
-    "optionsIntervalLabel": {
-        "message": "Intervalo de comprobación (en minutos):"
-    },
-    "saveButton": {
-        "message": "Guardar"
-    },
-    "statusSaved": {
-        "message": "¡Configuración guardada!"
-    },
-    "statusError": {
-        "message": "Por favor, introduce una URL válida y un intervalo (>= 1 minuto)."
-    },
-    "notificationTitle": {
-        "message": "¡Feed Actualizado!"
-    },
-    "notificationBody": {
-        "message": "Hay mensajes nuevos o modificados."
-    }
+  "extName": {
+    "message": "FeeFier - Notificador de Feed"
+  },
+  "extDescription": {
+    "message": "Monitoriza una URL de feed y envía una notificación cuando hay actualizaciones."
+  },
+  "optionsTitle": {
+    "message": "Configuración de FeeFier"
+  },
+  "optionsFeedUrlLabel": {
+    "message": "URL del feed a monitorizar:"
+  },
+  "optionsIntervalLabel": {
+    "message": "Intervalo de comprobación (en minutos):"
+  },
+  "saveButton": {
+    "message": "Guardar"
+  },
+  "statusSaved": {
+    "message": "¡Configuración guardada!"
+  },
+  "statusError": {
+    "message": "Por favor, introduce una URL válida y un intervalo (>= 1 minuto)."
+  },
+  "notificationTitle": {
+    "message": "¡Feed Actualizado!"
+  },
+  "notificationBody": {
+    "message": "Hay mensajes nuevos o modificados."
+  },
+  "optionsAddFeed": {
+    "message": "Añadir feed"
+  },
+  "optionsRemoveFeed": {
+    "message": "Eliminar"
+  }
 }

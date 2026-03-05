@@ -117,13 +117,40 @@
       transform: scale(0.98);
     }
 
-    /* 6. Styling für die Status-Nachricht */
+    /* 6. Styling für Feed-Rows (Dynamic Multi-Feed) */
+    .feed-row {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1em;
+      position: relative;
+    }
+
+    .feed-row label {
+      margin-top: 0 !important;
+    }
+
+    .feed-row input {
+      margin-bottom: 0.8em;
+    }
+
+    button.remove-btn {
+      margin-top: 0;
+      padding: 8px;
+      background-color: var(--error-color);
+    }
+
+    button.remove-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* 7. Styling für die Status-Nachricht */
     #status {
       margin-top: 1.5em;
       text-align: center;
       font-weight: 500;
       min-height: 1.2em;
-      /* Verhindert, dass das Layout springt */
     }
   </style>
 </head>
@@ -133,13 +160,11 @@
   <div class="container">
     <h1 id="optionsH1"></h1>
 
-    <label for="feedUrl" id="feedUrlLabel"></label>
-    <input type="url" id="feedUrl" placeholder="https://domain.com/rss.xml">
+    <div id="feedsContainer"></div>
 
-    <label for="interval" id="intervalLabel"></label>
-    <input type="number" id="interval" min="1">
+    <button id="addFeedButton" type="button" style="margin-top: 1em; background-color: var(--label-color);"></button>
 
-    <button id="saveButton"></button>
+    <button id="saveButton" type="button"></button>
     <div id="status"></div>
   </div>
 
