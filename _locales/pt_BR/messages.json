@@ -1,0 +1,32 @@
+{
+    "extName": {
+        "message": "FeeFier - Notificador de Feed"
+    },
+    "extDescription": {
+        "message": "Monitora a URL de um feed e envia uma notificação sobre atualizações."
+    },
+    "optionsTitle": {
+        "message": "Configurações do FeeFier"
+    },
+    "optionsFeedUrlLabel": {
+        "message": "URL do feed a ser monitorado:"
+    },
+    "optionsIntervalLabel": {
+        "message": "Intervalo de verificação (em minutos):"
+    },
+    "saveButton": {
+        "message": "Salvar"
+    },
+    "statusSaved": {
+        "message": "Configurações salvas!"
+    },
+    "statusError": {
+        "message": "Por favor, insira uma URL válida e um intervalo (>= 1 minuto)."
+    },
+    "notificationTitle": {
+        "message": "Feed Atualizado!"
+    },
+    "notificationBody": {
+        "message": "Há mensagens novas ou alteradas."
+    }
+}

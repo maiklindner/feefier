@@ -1,0 +1,32 @@
+{
+    "extName": {
+        "message": "FeeFier - Notificateur de Flux"
+    },
+    "extDescription": {
+        "message": "Surveille l'URL d'un flux et envoie une notification lors des mises à jour."
+    },
+    "optionsTitle": {
+        "message": "Paramètres de FeeFier"
+    },
+    "optionsFeedUrlLabel": {
+        "message": "URL du flux à surveiller :"
+    },
+    "optionsIntervalLabel": {
+        "message": "Intervalle de vérification (en minutes) :"
+    },
+    "saveButton": {
+        "message": "Enregistrer"
+    },
+    "statusSaved": {
+        "message": "Paramètres enregistrés !"
+    },
+    "statusError": {
+        "message": "Veuillez entrer une URL valide et un intervalle (>= 1 minute)."
+    },
+    "notificationTitle": {
+        "message": "Flux Mis à Jour !"
+    },
+    "notificationBody": {
+        "message": "Il y a de nouveaux messages ou des messages modifiés."
+    }
+}

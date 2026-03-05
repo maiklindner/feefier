@@ -1,0 +1,32 @@
+{
+    "extName": {
+        "message": "FeeFier - 订阅通知器"
+    },
+    "extDescription": {
+        "message": "监控订阅源的 URL，并在有更新时发送通知。"
+    },
+    "optionsTitle": {
+        "message": "FeeFier 设置"
+    },
+    "optionsFeedUrlLabel": {
+        "message": "要监控的订阅源 URL："
+    },
+    "optionsIntervalLabel": {
+        "message": "检查间隔（分钟）："
+    },
+    "saveButton": {
+        "message": "保存"
+    },
+    "statusSaved": {
+        "message": "设置已保存！"
+    },
+    "statusError": {
+        "message": "请输入有效的 URL 和时间间隔（>= 1分钟）。"
+    },
+    "notificationTitle": {
+        "message": "订阅源已更新！"
+    },
+    "notificationBody": {
+        "message": "有新的或已修改的消息。"
+    }
+}
