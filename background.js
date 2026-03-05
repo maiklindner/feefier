@@ -43,22 +43,6 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
 });
 
-// Listener für Klick auf das Extension-Icon
-chrome.action.onClicked.addListener((tab) => {
-  console.log('Icon geklickt. Icon wird zurückgesetzt und Feed-Prüfung gestartet.');
-
-  chrome.action.setIcon({
-    path: {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    }
-  });
-  chrome.action.setBadgeText({ text: '' });
-
-  checkFeed();
-});
-
 
 async function checkFeed() {
   const result = await chrome.storage.sync.get(['feedUrl']);

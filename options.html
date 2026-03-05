@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title id="pageTitle"></title>
@@ -36,23 +37,20 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       margin: 0;
-      padding: 2em;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
+      padding: 1.5em;
+      width: 320px;
       box-sizing: border-box;
     }
 
     /* 4. Der Container, der alles zusammenhält (die "Karte") */
     .container {
       background-color: var(--card-bg-color);
-      padding: 2em;
+      padding: 1.5em;
       border-radius: 12px;
       box-shadow: 0 8px 32px var(--shadow-color);
       width: 100%;
-      max-width: 500px;
       border: 1px solid var(--border-color);
+      box-sizing: border-box;
     }
 
     /* 5. Styling für die Elemente */
@@ -94,7 +92,7 @@
 
     /* Abstand zwischen den Eingabefeldern */
     label:not(:first-of-type) {
-        margin-top: 1.5em;
+      margin-top: 1.5em;
     }
 
     button {
@@ -114,9 +112,9 @@
     button:hover {
       background-color: var(--primary-hover-color);
     }
-    
+
     button:active {
-        transform: scale(0.98);
+      transform: scale(0.98);
     }
 
     /* 6. Styling für die Status-Nachricht */
@@ -124,10 +122,12 @@
       margin-top: 1.5em;
       text-align: center;
       font-weight: 500;
-      min-height: 1.2em; /* Verhindert, dass das Layout springt */
+      min-height: 1.2em;
+      /* Verhindert, dass das Layout springt */
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -145,4 +145,5 @@
 
   <script src="options.js"></script>
 </body>
+
 </html>
