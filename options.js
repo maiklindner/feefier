@@ -1,19 +1,19 @@
-// Funktion zum Lokalisieren der Seite
+// Localize page
 function localizeHtmlPage() {
-  // Statische Elemente mit Text befüllen
+  // Populate text elements
   document.getElementById('pageTitle').textContent = chrome.i18n.getMessage('optionsTitle');
   document.getElementById('optionsH1').textContent = chrome.i18n.getMessage('optionsTitle');
   document.getElementById('saveButton').textContent = chrome.i18n.getMessage('saveButton');
   document.getElementById('addFeedButton').textContent = chrome.i18n.getMessage('optionsAddFeed');
 }
 
-// Elemente holen
+// DOM DOM elements
 const feedsContainer = document.getElementById('feedsContainer');
 const addFeedButton = document.getElementById('addFeedButton');
 const saveButton = document.getElementById('saveButton');
 const statusDiv = document.getElementById('status');
 
-// Feed-Zeile im DOM erstellen
+// Create feed row in DOM
 function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
   const row = document.createElement('div');
   row.className = 'feed-row';
@@ -52,7 +52,7 @@ function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
   feedsContainer.appendChild(row);
 }
 
-// Speichert die Optionen
+// Save options
 function saveOptions() {
   const rows = document.querySelectorAll('.feed-row');
   const feeds = [];
@@ -85,13 +85,13 @@ function saveOptions() {
   }
 }
 
-// Lädt die gespeicherten Optionen
+// Restore options
 function restoreOptions() {
   chrome.storage.sync.get(['feeds'], (items) => {
-    // Wenn es noch keine Feeds gibt, zeige ein leeres Feld an
+    // Default empty row
     const feeds = items.feeds || [{ id: Date.now().toString(), url: '', interval: 15 }];
 
-    // Fallback falls Liste komplett leer
+    // Fallback for empty list
     if (feeds.length === 0) {
       feeds.push({ id: Date.now().toString(), url: '', interval: 15 });
     }
@@ -101,7 +101,7 @@ function restoreOptions() {
   });
 }
 
-// Event-Listener hinzufügen
+// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
   localizeHtmlPage();
   restoreOptions();

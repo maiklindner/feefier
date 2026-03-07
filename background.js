@@ -1,10 +1,11 @@
-// Listener für die Installation der Extension
+// Extension installation listener
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('Feed Notifier wurde installiert oder geupdatet.');
+  console.log('Feed Notifier installed or updated.');
   chrome.action.setBadgeText({ text: '' });
   chrome.action.setBadgeBackgroundColor({ color: '#D93025' });
 
-  // Migration von v1.0 auf v1.1 (Einzel-Feed zu Multi-Feed)
+  // Migrate v1.0 to v1.1
+
   chrome.storage.sync.get(['feedUrl', 'interval', 'feeds'], (items) => {
     if (!items.feeds && items.feedUrl && items.interval) {
       const migratedFeeds = [{
@@ -22,24 +23,23 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-// Listener für den Start des Browsers
+// Browser startup listener
 chrome.runtime.onStartup.addListener(() => {
-  console.log("Browser gestartet, richte Feeds ein.");
+  console.log("Browser started, setting up feeds.");
   chrome.storage.sync.get(['feeds'], (items) => {
     if (items.feeds) {
       setupAlarms(items.feeds);
-      // Führe sofortige Prüfung aus
+      // Perform immediate check
       items.feeds.forEach(feed => checkFeed(feed));
     }
   });
 });
 
-// Listener für Änderungen im Speicher
+// Storage change listener
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync' && changes.feeds) {
-    console.log("Feeds wurden geändert. Aktualisiere Alarme.");
+    console.log("Feeds changed. Updating alarms.");
     setupAlarms(changes.feeds.newValue || []);
-    // Neu hinzugefügte Feeds prüfen? Könnte man, aber lassen wir in options.js anstoßen oder warten aufs nächste Interval.
   }
 });
 
@@ -51,13 +51,13 @@ function setupAlarms(feeds) {
           delayInMinutes: 1,
           periodInMinutes: parseInt(feed.interval)
         });
-        console.log(`Alarm eingerichtet: feedCheck_${feed.id} alle ${feed.interval} Minuten.`);
+        console.log(`Alarm set: feedCheck_${feed.id} every ${feed.interval} minutes.`);
       }
     });
   });
 }
 
-// Listener für den Alarm
+// Alarm listener
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name.startsWith('feedCheck_')) {
     const feedId = alarm.name.replace('feedCheck_', '');
@@ -78,13 +78,12 @@ async function checkFeed(feed) {
   try {
     const response = await fetch(url, { cache: 'no-store' });
     if (!response.ok) {
-      console.error(`Fehler beim Abrufen des Feeds ${feed.id}:`, response.status);
+      console.error(`Error fetching feed ${feed.id}:`, response.status);
       return;
     }
     const feedText = await response.text();
 
-    // Regex zur Suche nach <item> oder <entry> (RSS oder Atom)
-    // Wir nehmen die ersten 3.
+    // Extract up to 3 item/entry tags
     const itemRegex = /<item>[\s\S]*?<\/item>|<entry>[\s\S]*?<\/entry>/gi;
     let match;
     const topItems = [];
@@ -94,20 +93,20 @@ async function checkFeed(feed) {
 
     const cleanFeedText = topItems.join('\n\n---ITEM_DELIMITER---\n\n');
     if (!cleanFeedText) {
-      console.log(`Keine neuen Items/Entries gefunden für ${feed.id}`);
+      console.log(`No new items/entries found for ${feed.id}`);
       return;
     }
 
     const storageKey = `lastFeedContent_${feed.id}`;
     const storage = await chrome.storage.local.get([storageKey]);
 
-    // Vergleiche den alten mit dem neuen bereinigten Inhalt
+    // Check if cleaned content changed
     if (storage[storageKey] !== cleanFeedText) {
-      console.log(`Feed-Inhalt ${feed.id} hat sich geändert!`);
+      console.log(`Feed content ${feed.id} changed!`);
 
       await chrome.storage.local.set({ [storageKey]: cleanFeedText });
 
-      // Notification Senden (mit der Feed URL als Kontext)
+      // Send notification
       const notifTitle = chrome.i18n.getMessage('notificationTitle');
       const notifBody = chrome.i18n.getMessage('notificationBody');
 
@@ -129,11 +128,11 @@ async function checkFeed(feed) {
       chrome.action.setBadgeText({ text: '!' });
 
     } else {
-      console.log(`Feed-Inhalt ${feed.id} ist identisch zum letzten Mal.`);
+      console.log(`Feed content ${feed.id} identical to last time.`);
     }
   } catch (error) {
-    console.error(`--- FEHLER BEIM VERARBEITEN DES FEEDS ${feed.id} ---`);
-    console.error('Fehler-Objekt:', error);
-    console.error('Versuchte URL:', url);
+    console.error(`--- ERROR PROCESSING FEED ${feed.id} ---`);
+    console.error('Error object:', error);
+    console.error('Attempted URL:', url);
   }
 }
