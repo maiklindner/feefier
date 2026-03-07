@@ -13,23 +13,23 @@ Der Schutz Ihrer Privatsphäre ist uns sehr wichtig. Die Erweiterung wurde nach 
 Die Erweiterung erfasst und speichert die folgenden Informationen:
 
 * **Vom Nutzer eingegebene Daten**:
-    * **Feed-URL**: Die Web-Adresse des Feeds, den Sie überwachen möchten.
-    * **Abfrageintervall**: Die von Ihnen festgelegte Häufigkeit in Minuten, in der der Feed überprüft werden soll.
+    * **Feed-URL**: Die Web-Adresse des Feeds, den du überwachen möchtest.
+    * **Abfrageintervall**: Die von dir festgelegte Häufigkeit in Minuten, in der der Feed überprüft werden soll.
 * **Automatisch zwischengespeicherte Daten**:
     * **Inhalt des letzten Feeds**: Eine Kopie des Inhalts des Feeds bei der letzten Überprüfung. Dieser wird ausschließlich dazu verwendet, um festzustellen, ob sich seitdem etwas geändert hat.
 
-Die Erweiterung erfasst oder verarbeitet **keine** persönlichen Daten wie Ihren Namen, Ihre E-Mail-Adresse, Ihren Standort oder Ihre Browser-Aktivitäten.
+Die Erweiterung erfasst oder verarbeitet **keine** persönlichen Daten wie deinen Namen, deine E-Mail-Adresse, deinen Standort oder deine Browser-Aktivitäten.
 
 **2. Wie und wo werden die Daten gespeichert?**
 
-Alle oben genannten Daten werden ausschließlich auf Ihrem eigenen Computer und in Ihrem Browser gespeichert.
+Alle oben genannten Daten werden ausschließlich auf deinem eigenen Computer und in deinem Browser gespeichert.
 
-* Ihre **Einstellungen** (Feed-URL und Intervall) werden mit der `chrome.storage.sync` API gespeichert. Das bedeutet, die Daten werden sicher in Ihrem Browser gespeichert und über Ihr Microsoft-Konto synchronisiert, sodass Ihre Einstellungen auf allen Ihren Geräten verfügbar sind. **Der Entwickler hat keinen Zugriff auf diese Daten.**
-* Der **zwischengespeicherte Feed-Inhalt** wird mit der `chrome.storage.local` API gespeichert. Diese Daten verbleiben ausschließlich lokal auf Ihrem Gerät und werden nicht synchronisiert. **Der Entwickler hat keinen Zugriff auf diese Daten.**
+* Deine **Einstellungen** (Feed-URL und Intervall) werden mit der `chrome.storage.sync` API gespeichert. Das bedeutet, die Daten werden sicher in deinem Browser gespeichert und über dein Browser-Konto synchronisiert, sodass deine Einstellungen auf allen deinen Geräten verfügbar sind. **Der Entwickler hat keinen Zugriff auf diese Daten.**
+* Der **zwischengespeicherte Feed-Inhalt** wird mit der `chrome.storage.local` API gespeichert. Diese Daten verbleiben ausschließlich lokal auf deinem Gerät und werden nicht synchronisiert. **Der Entwickler hat keinen Zugriff auf diese Daten.**
 
 **3. Datenübertragung**
 
-Die einzige Datenübertragung, die von der Erweiterung ausgeht, ist die Anfrage an die von Ihnen selbst festgelegte **Feed-URL**, um deren Inhalt abzurufen.
+Die einzige Datenübertragung, die von der Erweiterung ausgeht, ist die Anfrage an die von dir selbst festgelegte **Feed-URL**, um deren Inhalt abzurufen.
 
 Es werden **keine Daten an den Entwickler oder an Dritte gesendet**. Es gibt keine Analyse-Tools oder Tracker von Drittanbietern.
 
@@ -37,10 +37,10 @@ Es werden **keine Daten an den Entwickler oder an Dritte gesendet**. Es gibt kei
 
 Bei der Installation bittet die Erweiterung um folgende Berechtigungen:
 
-* **`storage`**: Wird benötigt, um Ihre Einstellungen (Feed-URL, Intervall) zu speichern.
-* **`notifications`**: Wird benötigt, um Sie über neue Feed-Einträge per Benachrichtigung zu informieren.
+* **`storage`**: Wird benötigt, um deine Einstellungen (Feed-URL, Intervall) zu speichern.
+* **`notifications`**: Wird benötigt, um dich über neue Feed-Einträge per Benachrichtigung zu informieren.
 * **`alarms`**: Wird benötigt, um die periodische Überprüfung des Feeds im Hintergrund zuverlässig auszuführen.
-* **`host_permissions`**: Wird benötigt, damit die Erweiterung auf die von Ihnen festgelegte Feed-URL zugreifen kann, egal auf welcher Domain diese sich befindet. Die Erweiterung liest oder interagiert nicht mit anderen Websites, die Sie besuchen.
+* **`host_permissions`**: Wird benötigt, damit die Erweiterung auf die von dir festgelegte Feed-URL zugreifen kann, egal auf welcher Domain diese sich befindet. Die Erweiterung liest oder interagiert nicht mit anderen Websites, die du besuchst.
 
 **5. Änderungen an dieser Richtlinie**
 
@@ -48,7 +48,7 @@ Diese Datenschutzrichtlinie kann zukünftig aktualisiert werden, um Änderungen 
 
 **6. Kontakt**
 
-Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie bitte den Entwickler:
+Wenn du Fragen zu dieser Datenschutzrichtlinie hast, kontaktiere bitte den Entwickler:
 
 Maik Lindner
 dev@lindner.one
@@ -81,7 +81,7 @@ The extension does **not** collect or process any personal data such as your nam
 
 All the data mentioned above is stored exclusively on your own computer and within your browser.
 
-* Your **settings** (Feed URL and interval) are stored using the `chrome.storage.sync` API. This means the data is stored securely in your browser and synchronized via your Microsoft Account, making your settings available across all your devices. **The developer has no access to this data.**
+* Your **settings** (Feed URL and interval) are stored using the `chrome.storage.sync` API. This means the data is stored securely in your browser and synchronized via your browser account, making your settings available across all your devices. **The developer has no access to this data.**
 * The **cached feed content** is stored using the `chrome.storage.local` API. This data remains exclusively on your local device and is not synchronized. **The developer has no access to this data.**
 
 **3. Data Transmission**

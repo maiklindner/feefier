@@ -1,4 +1,4 @@
-# Feed Notifier for Edge
+# Feed Notifier
 
 ![Icon](icons/icon128.png)
 
@@ -6,7 +6,7 @@
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-orange)]()
 [![Privacy](https://img.shields.io/badge/Privacy-Friendly-green)](PRIVACY.md)
 
-**FeeFier** is a simple and privacy-focused feed monitor for Microsoft Edge that notifies you about new entries in your most important RSS or Atom feeds.
+**FeeFier** is a simple and privacy-focused feed monitor for your browser that notifies you about new entries in your most important RSS or Atom feeds.
 
 ---
 
@@ -21,9 +21,9 @@
 <details>
 <summary><strong>🇩🇪 Deutsch (German)</strong></summary>
 
-### Feed Notifier for Edge
+### Feed Notifier
 
-Ein einfacher und datenschutzfreundlicher Feed-Monitor für Microsoft Edge, der dich über neue Einträge in deinen wichtigsten RSS- oder Atom-Feeds benachrichtigt.
+Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der dich über neue Einträge in deinen wichtigsten RSS- oder Atom-Feeds benachrichtigt.
 
 </details>
 
@@ -36,7 +36,7 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für Microsoft Edge, der 
 * **Instant Notifications:** Get a desktop notification as soon as an update is found.
 * **Badge Indicator:** A badge on the toolbar icon shows you at a glance if there's something new.
 * **Dark Mode Support:** Both the options page and the toolbar icon automatically adapt to your browser's light or dark theme.
-* **Privacy First:** No data is ever sent to the developer or third parties. All your settings are stored locally or synced securely via your Microsoft account.
+* **Privacy First:** No data is ever sent to the developer or third parties. All your settings are stored locally or synced securely via your browser account.
 * **Multilingual:** User interface is available in multiple languages.
 
 ### 📦 Installation
@@ -49,7 +49,7 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für Microsoft Edge, der 
 #### From Source (for Development)
 
 1.  Clone or download this repository as a ZIP file and unzip it.
-2.  Open Microsoft Edge and navigate to `edge://extensions`.
+2.  Open your browser and navigate to the extensions page (e.g. `chrome://extensions` or `edge://extensions`).
 3.  Enable "Developer mode" using the toggle switch.
 4.  Click the "Load unpacked" button.
 5.  Select the folder where you unzipped the repository files.
@@ -65,7 +65,7 @@ The extension will now check the feed in the background. If an update is found, 
 
 ## 🛡️ Privacy
 
-Your privacy is a top priority. This extension does not collect, store, or transmit any personal data to the developer or any third parties. All your settings are stored locally or synced securely via your Microsoft account.
+Your privacy is a top priority. This extension does not collect, store, or transmit any personal data to the developer or any third parties. All your settings are stored locally or synced securely via your browser account.
 [Read full Privacy Policy](PRIVACY.md)
 
 ---
