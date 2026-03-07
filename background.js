@@ -136,3 +136,21 @@ async function checkFeed(feed) {
     console.error('Attempted URL:', url);
   }
 }
+
+// User Action Notification
+chrome.action.onClicked.addListener(() => {
+  console.log("Action button clicked, checking all feeds immediately...");
+  chrome.storage.sync.get(['feeds'], (items) => {
+    if (items.feeds) {
+      items.feeds.forEach(feed => checkFeed(feed));
+      
+      // Give a tiny visual feedback that it started checking
+      chrome.action.setBadgeText({ text: ' ' });
+      chrome.action.setBadgeBackgroundColor({ color: '#f39c12' }); // orange
+      setTimeout(() => {
+        // Clear it back if no updates were found (checkFeed will overwrite if updates found)
+        chrome.action.setBadgeText({ text: '' });
+      }, 1000);
+    }
+  });
+});
