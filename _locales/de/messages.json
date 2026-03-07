@@ -1,12 +1,12 @@
 {
   "extName": {
-    "message": "Feefier - Feed Notifier"
+    "message": "FeeFier - Feed Notifier"
   },
   "extDescription": {
     "message": "Überwacht eine Feed-URL und sendet eine Benachrichtigung bei Aktualisierungen."
   },
   "optionsTitle": {
-    "message": "Feefier Einstellungen"
+    "message": "FeeFier Einstellungen"
   },
   "optionsFeedUrlLabel": {
     "message": "Zu überwachende Feed-URL:"
