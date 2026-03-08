@@ -6,7 +6,7 @@
     "message": "Surveille l'URL d'un flux et envoie une notification lors des mises à jour."
   },
   "optionsTitle": {
-    "message": "Paramètres de FeeFier"
+    "message": "FeeFier"
   },
   "optionsFeedUrlLabel": {
     "message": "URL du flux à surveiller :"

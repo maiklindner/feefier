@@ -6,7 +6,7 @@
     "message": "フィードURLを監視し、更新に関する通知を送信します。"
   },
   "optionsTitle": {
-    "message": "FeeFier設定"
+    "message": "FeeFier"
   },
   "optionsFeedUrlLabel": {
     "message": "監視するフィードURL:"

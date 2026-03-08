@@ -6,7 +6,7 @@
     "message": "Monitora a URL de um feed e envia uma notificação sobre atualizações."
   },
   "optionsTitle": {
-    "message": "Configurações do FeeFier"
+    "message": "FeeFier"
   },
   "optionsFeedUrlLabel": {
     "message": "URL do feed a ser monitorado:"
@@ -51,6 +51,6 @@
     "message": "Adicionar feed"
   },
   "optionsRemoveFeed": {
-    "message": "Remover"
+    "message": "Excluir"
   }
 }

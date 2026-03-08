@@ -6,7 +6,7 @@
     "message": "Überwacht eine Feed-URL und sendet eine Benachrichtigung bei Aktualisierungen."
   },
   "optionsTitle": {
-    "message": "FeeFier Einstellungen"
+    "message": "FeeFier"
   },
   "optionsFeedUrlLabel": {
     "message": "Zu überwachende Feed-URL:"
@@ -51,6 +51,6 @@
     "message": "Feed hinzufügen"
   },
   "optionsRemoveFeed": {
-    "message": "Entfernen"
+    "message": "Löschen"
   }
 }

@@ -106,8 +106,15 @@ function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }) 
     triggerAutoSave();
   };
 
+  const toggleWrapper = document.createElement('div');
+  toggleWrapper.style.height = '48px';
+  toggleWrapper.style.display = 'flex';
+  toggleWrapper.style.alignItems = 'center';
+  toggleWrapper.style.marginRight = '1em';
+
   const toggleGroup = document.createElement('label');
   toggleGroup.className = 'switch';
+  toggleGroup.style.margin = '0';
   const toggleInput = document.createElement('input');
   toggleInput.type = 'checkbox';
   toggleInput.className = 'feed-enabled';
@@ -118,10 +125,11 @@ function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }) 
   
   toggleGroup.appendChild(toggleInput);
   toggleGroup.appendChild(toggleSlider);
+  toggleWrapper.appendChild(toggleGroup);
 
   row.appendChild(urlGroup);
   row.appendChild(intervalGroup);
-  row.appendChild(toggleGroup);
+  row.appendChild(toggleWrapper);
   row.appendChild(removeBtn);
 
   feedsContainer.appendChild(row);
