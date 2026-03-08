@@ -204,13 +204,54 @@
     }
 
     /* 7. Status Message Styles */
-    #status {
-      margin-top: 1.5em;
-      text-align: center;
-      font-weight: 500;
-      min-height: 1.2em;
-    }
-  </style>
+  /* 8. Toggle Switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 1em; /* Space before delete button */
+    margin-bottom: 14px; /* Align with input fields */
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: .4s;
+    border-radius: 20px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: var(--primary-color);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+</style>
 </head>
 
 <body>

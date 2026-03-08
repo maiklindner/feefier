@@ -60,7 +60,7 @@ const statusDiv = document.getElementById('status');
 let saveTimeout;
 
 // Create feed row in DOM
-function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
+function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }) {
   const row = document.createElement('div');
   row.className = 'feed-row';
   row.dataset.id = feed.id || Date.now().toString() + Math.random().toString(36).substr(2, 5);
@@ -106,8 +106,22 @@ function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
     triggerAutoSave();
   };
 
+  const toggleGroup = document.createElement('label');
+  toggleGroup.className = 'switch';
+  const toggleInput = document.createElement('input');
+  toggleInput.type = 'checkbox';
+  toggleInput.className = 'feed-enabled';
+  toggleInput.checked = feed.enabled !== false; // Default to true
+  toggleInput.addEventListener('change', triggerAutoSave);
+  const toggleSlider = document.createElement('span');
+  toggleSlider.className = 'slider';
+  
+  toggleGroup.appendChild(toggleInput);
+  toggleGroup.appendChild(toggleSlider);
+
   row.appendChild(urlGroup);
   row.appendChild(intervalGroup);
+  row.appendChild(toggleGroup);
   row.appendChild(removeBtn);
 
   feedsContainer.appendChild(row);
@@ -129,10 +143,11 @@ function saveOptions() {
     const url = row.querySelector('.feed-url').value.trim();
     const intervalElement = row.querySelector('.feed-interval').value;
     const interval = intervalElement ? parseInt(intervalElement, 10) : 0;
+    const enabled = row.querySelector('.feed-enabled').checked;
     const id = row.dataset.id;
 
     if (url && interval >= 1) {
-      feeds.push({ id, url, interval });
+      feeds.push({ id, url, interval, enabled });
     } else if (url || intervalElement) {
       // Partially filled row is treated as invalid
       valid = false;
@@ -157,11 +172,11 @@ function saveOptions() {
 function restoreOptions() {
   chrome.storage.sync.get(['feeds'], (items) => {
     // Default empty row
-    const feeds = items.feeds || [{ id: Date.now().toString(), url: '', interval: 15 }];
+    const feeds = items.feeds || [{ id: Date.now().toString(), url: '', interval: 15, enabled: true }];
 
     // Fallback for empty list
     if (feeds.length === 0) {
-      feeds.push({ id: Date.now().toString(), url: '', interval: 15 });
+      feeds.push({ id: Date.now().toString(), url: '', interval: 15, enabled: true });
     }
 
     feedsContainer.innerHTML = '';

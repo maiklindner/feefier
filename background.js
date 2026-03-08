@@ -46,7 +46,9 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 function setupAlarms(feeds) {
   chrome.alarms.clearAll(() => {
     feeds.forEach(feed => {
-      if (feed && feed.url && feed.interval >= 1) {
+      // Treat undefined 'enabled' as true for backwards compatibility
+      const isEnabled = feed.enabled !== false; 
+      if (isEnabled && feed && feed.url && feed.interval >= 1) {
         chrome.alarms.create(`feedCheck_${feed.id}`, {
           delayInMinutes: 1,
           periodInMinutes: parseInt(feed.interval)
@@ -77,8 +79,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log("Manual refresh triggered from popup.");
     chrome.storage.sync.get(['feeds'], (items) => {
       if (items.feeds) {
-        // Run checks concurrently
-        Promise.all(items.feeds.map(feed => checkFeed(feed))).then(() => {
+        // Run checks concurrently only for enabled feeds
+        const activeFeeds = items.feeds.filter(f => f.enabled !== false);
+        Promise.all(activeFeeds.map(feed => checkFeed(feed))).then(() => {
           sendResponse({ status: 'done' });
         });
       } else {
@@ -90,6 +93,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 async function checkFeed(feed) {
+  if (feed.enabled === false) return; // Skip if explicitly disabled
   const url = feed.url;
   if (!url) return;
 
