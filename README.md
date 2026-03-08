@@ -33,6 +33,7 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der 
 
 * **Monitors any Feed:** Works with any valid RSS or Atom feed URL.
 * **Customizable Interval:** Set how often the feed should be checked.
+* **Individual Toggles:** Pause monitoring for specific feeds anytime without deleting them.
 * **Instant Notifications:** Get a desktop notification as soon as an update is found.
 * **Badge Indicator:** A badge on the toolbar icon shows you at a glance if there's something new.
 * **Dark Mode Support:** Both the options page and the toolbar icon automatically adapt to your browser's light or dark theme.
