@@ -41,6 +41,12 @@
   "notificationBody": {
     "message": "有新的或已修改的消息。"
   },
+  "optionsDesc": {
+    "message": "在此处管理您的 feed 订阅。"
+  },
+  "optionsFeedsHeading": {
+    "message": "您的 Feed"
+  },
   "optionsAddFeed": {
     "message": "添加 Feed"
   },

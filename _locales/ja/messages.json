@@ -41,6 +41,12 @@
   "notificationBody": {
     "message": "新しいメッセージまたは変更されたメッセージがあります。"
   },
+  "optionsDesc": {
+    "message": "ここでフィードのサブスクリプションを管理します。"
+  },
+  "optionsFeedsHeading": {
+    "message": "あなたのフィード"
+  },
   "optionsAddFeed": {
     "message": "フィードを追加"
   },

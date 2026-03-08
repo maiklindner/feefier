@@ -56,23 +56,36 @@
       border-radius: 16px;
       box-shadow: 0 10px 40px var(--shadow-color);
       width: 100%;
-      max-width: 540px;
+      max-width: 800px;
       border: 1px solid var(--border-color);
       box-sizing: border-box;
       margin: 2em;
     }
 
-    /* 5. Elements */
+    /* Header matching PagePalette */
+    header {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
     h1 {
-      font-size: 2em;
+      font-size: 24px;
       margin-top: 0;
-      margin-bottom: 1em;
+      margin-bottom: 8px;
       color: var(--text-color);
-      text-align: center;
       font-weight: 700;
       letter-spacing: -0.025em;
     }
 
+    p {
+      color: var(--label-color);
+      margin-top: 0;
+      margin-bottom: 0;
+      opacity: 0.9;
+    }
+
+    /* 5. Elements */
     label {
       display: block;
       font-size: 0.9em;
@@ -103,28 +116,35 @@
       box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 20%, transparent);
     }
 
+    .feeds-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .feeds-header h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
     button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 1em;
-      font-size: 1em;
-      font-weight: 600;
-      color: #ffffff;
-      background-color: var(--primary-color);
-      border: none;
-      border-radius: 10px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      letter-spacing: 0.01em;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-family: inherit;
+      border: none;
+      transition: background-color 0.2s;
     }
 
-    button:hover {
+    .primary-btn {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .primary-btn:hover {
       background-color: var(--primary-hover-color);
-      transform: translateY(-1px);
-    }
-
-    button:active {
-      transform: translateY(0);
     }
 
     /* 6. Feed Row Styles */
@@ -171,6 +191,7 @@
       background-color: transparent;
       color: var(--error-color);
       border: 1px solid var(--error-color);
+      border-radius: 10px;
       font-weight: 600;
       flex-shrink: 0;
       width: auto;
@@ -195,25 +216,32 @@
 <body>
 
   <div class="container">
-    <div style="display: flex; justify-content: flex-end; margin-bottom: 1em;">
-      <select id="langSelect" style="width: auto; padding: 8px; font-size: 0.9em; cursor: pointer; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--input-bg-color); color: var(--text-color);">
-        <option value="auto">Auto (Browser)</option>
-        <option value="en">English (en)</option>
-        <option value="de">Deutsch (de)</option>
-        <option value="es">Español (es)</option>
-        <option value="fr">Français (fr)</option>
-        <option value="ja">日本語 (ja)</option>
-        <option value="pt_BR">Português (pt_BR)</option>
-        <option value="zh_CN">中文 (zh_CN)</option>
-      </select>
-    </div>
-    <h1 id="optionsH1"></h1>
+    <header>
+      <div style="display: flex; justify-content: flex-end; width: 100%; margin-bottom: -1.5em; position: relative; z-index: 10;">
+        <select id="langSelect" style="width: auto; padding: 6px; font-size: 0.85em; cursor: pointer; border: 1px solid var(--border-color); border-radius: 6px; background-color: var(--input-bg-color); color: var(--text-color);">
+          <option value="auto">Auto (Browser)</option>
+          <option value="en">English (en)</option>
+          <option value="de">Deutsch (de)</option>
+          <option value="es">Español (es)</option>
+          <option value="fr">Français (fr)</option>
+          <option value="ja">日本語 (ja)</option>
+          <option value="pt_BR">Português (pt_BR)</option>
+          <option value="zh_CN">中文 (zh_CN)</option>
+        </select>
+      </div>
+      <h1 id="optionsH1"></h1>
+      <p id="optionsDesc"></p>
+    </header>
 
-    <div id="feedsContainer"></div>
+    <main>
+      <div class="feeds-header">
+        <h2 id="feedsHeading">Feeds</h2>
+        <button id="addFeedButton" class="primary-btn" type="button"></button>
+      </div>
 
-    <button id="addFeedButton" type="button" style="margin-top: 1em; background-color: var(--label-color);"></button>
-
-    <div id="status"></div>
+      <div id="feedsContainer"></div>
+      <div id="status"></div>
+    </main>
   </div>
 
   <script src="options.js"></script>

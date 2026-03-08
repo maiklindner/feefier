@@ -41,6 +41,12 @@
   "notificationBody": {
     "message": "There are new or changed messages."
   },
+  "optionsDesc": {
+    "message": "Manage your feed subscriptions here."
+  },
+  "optionsFeedsHeading": {
+    "message": "Your Feeds"
+  },
   "optionsAddFeed": {
     "message": "Add Feed"
   },

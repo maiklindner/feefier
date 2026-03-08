@@ -35,7 +35,9 @@ function initLocalization(callback) {
 function localizeHtmlPage() {
   document.getElementById('pageTitle').textContent = getMessage('optionsTitle');
   document.getElementById('optionsH1').textContent = getMessage('optionsTitle');
-  document.getElementById('addFeedButton').textContent = getMessage('optionsAddFeed');
+  document.getElementById('optionsDesc').textContent = getMessage('optionsDesc');
+  document.getElementById('feedsHeading').textContent = getMessage('optionsFeedsHeading');
+  document.getElementById('addFeedButton').textContent = '+ ' + getMessage('optionsAddFeed');
   
   document.querySelectorAll('.feed-row').forEach(row => {
     const labels = row.querySelectorAll('label');

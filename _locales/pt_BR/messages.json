@@ -41,6 +41,12 @@
   "notificationBody": {
     "message": "Há mensagens novas ou alteradas."
   },
+  "optionsDesc": {
+    "message": "Gerencie suas assinaturas de feeds aqui."
+  },
+  "optionsFeedsHeading": {
+    "message": "Seus Feeds"
+  },
   "optionsAddFeed": {
     "message": "Adicionar feed"
   },

@@ -41,6 +41,12 @@
   "notificationBody": {
     "message": "Il y a de nouveaux messages ou des messages modifiés."
   },
+  "optionsDesc": {
+    "message": "Gérez ici vos abonnements aux flux."
+  },
+  "optionsFeedsHeading": {
+    "message": "Vos Flux"
+  },
   "optionsAddFeed": {
     "message": "Ajouter un flux"
   },
