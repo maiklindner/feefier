@@ -1,35 +1,15 @@
-# Feed Notifier
+![Icon](icons/logo48.png) 
 
-![Icon](icons/icon128.png)
+# FeeFier - Feed Notifier
 
-[![Microsoft Edge Add-ons](https://img.shields.io/badge/Microsoft%20Edge-Add--on-blue?logo=microsoft-edge)](https://microsoftedge.microsoft.com/addons/detail/feefier-feed-notifier/kiicjfnkejldenbnfiligmkgldlnglgm)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Add--on-blue?logo=google-chrome)]()
+[![Microsoft Edge Add-ons](https://img.shields.io/badge/Microsoft%20Edge-Add--on-blue?logo=microsoft-edge)]()
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-orange)]()
 [![Privacy](https://img.shields.io/badge/Privacy-Friendly-green)](PRIVACY.md)
 
 **FeeFier** is a simple and privacy-focused feed monitor for your browser that notifies you about new entries in your most important RSS or Atom feeds.
 
----
-
-## 📥 Installation
-
-[**Download from Microsoft Edge Add-ons Store**](https://microsoftedge.microsoft.com/addons/detail/feefier-feed-notifier/kiicjfnkejldenbnfiligmkgldlnglgm)
-
----
-
-## 🌍 Translations
-
-<details>
-<summary><strong>🇩🇪 Deutsch (German)</strong></summary>
-
-### Feed Notifier
-
-Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der dich über neue Einträge in deinen wichtigsten RSS- oder Atom-Feeds benachrichtigt.
-
-</details>
-
----
-
-## 🚀 Key Features
+## Features
 
 * **Monitors any Feed:** Works with any valid RSS or Atom feed URL.
 * **Customizable Interval:** Set how often the feed should be checked.
@@ -40,22 +20,23 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der 
 * **Privacy First:** No data is ever sent to the developer or third parties. All your settings are stored locally or synced securely via your browser account.
 * **Multilingual:** User interface is available in multiple languages.
 
-### 📦 Installation
+## Installation
 
-#### From the Microsoft Edge Add-ons Store
+You have three options to install FeeFier:
 
-1.  Visit the [FeeFier page on the Edge Add-ons store](https://microsoftedge.microsoft.com/addons/detail/feefier-feed-notifier/kiicjfnkejldenbnfiligmkgldlnglgm).
-2.  Click "Get" to install the extension.
+**1. Chrome Web Store**
+*Link coming soon*
 
-#### From Source (for Development)
+**2. Microsoft Edge Add-ons**
+*Link coming soon*
 
-1.  Clone or download this repository as a ZIP file and unzip it.
-2.  Open your browser and navigate to the extensions page (e.g. `chrome://extensions` or `edge://extensions`).
-3.  Enable "Developer mode" using the toggle switch.
-4.  Click the "Load unpacked" button.
-5.  Select the folder where you unzipped the repository files.
+**3. Manual Installation (Unpacked)**
+1. Clone this repository or download the ZIP and extract it.
+2. Open Chrome/Edge and navigate to `chrome://extensions` or `edge://extensions`.
+3. Enable **Developer mode** in the top right corner.
+4. Click **Load unpacked** and select the extension folder.
 
-### 🚀 How to Use
+## Usage
 
 1.  After installation, **right-click** the Feed Notifier icon in your toolbar and select **"Options"**.
 2.  Enter the full URL of the feed you want to monitor (e.g., `https://www.tagesschau.de/newsticker.rdf`).
@@ -64,24 +45,16 @@ Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der 
 
 The extension will now check the feed in the background. If an update is found, a `!` badge will appear on the icon and a system notification will be shown. A **left-click** on the icon clears the badge and triggers a manual check.
 
-## 🛡️ Privacy
+## Privacy
 
 Your privacy is a top priority. This extension does not collect, store, or transmit any personal data to the developer or any third parties. All your settings are stored locally or synced securely via your browser account.
 [Read full Privacy Policy](PRIVACY.md)
 
----
-
-### Contact & Support
-Maik Lindner  
-dev@lindner.one
-
----
-
-### 📜 License
+## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### 🏛️ Architecure
+## Architecture
 
 ```mermaid 
 graph LR
