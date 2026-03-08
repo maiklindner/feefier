@@ -1,0 +1,158 @@
+Store Listings / Store-Einträge (Plain Text Format)
+===================================================
+
+--------------------------------------------------------------------------------
+Language: English (en)
+Category: Productivity
+Edge Search Terms: RSS, Atom, Feed, Notifier, Reader, Monitor, Updates
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+A simple and privacy-focused feed monitor that notifies you about new entries in your most important RSS or Atom feeds.
+
+Description:
+A simple and privacy-focused feed monitor for your browser that notifies you about new entries in your most important RSS or Atom feeds.
+
+Features:
+- Monitors any Feed: Works with any valid RSS or Atom feed URL.
+- Customizable Interval: Set how often the feed should be checked.
+- Instant Notifications: Get a desktop notification as soon as an update is found.
+- Badge Indicator: A badge on the toolbar icon shows you at a glance if there's something new.
+- Dark Mode Support: Both the options page and the toolbar icon automatically adapt to your theme.
+- Privacy First: No data is ever sent to the developer or third parties. 100% offline.
+- Multilingual: User interface is available in multiple languages.
+
+--------------------------------------------------------------------------------
+Language: German (de)
+Category: Produktivität (Productivity)
+Edge Search Terms: RSS, Atom, Feed, Nachrichten, Reader, Monitor, Updates
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+Ein einfacher und datenschutzfreundlicher Feed-Monitor, der dich über neue Einträge in deinen wichtigsten Feeds benachrichtigt.
+
+Description:
+Ein einfacher und datenschutzfreundlicher Feed-Monitor für deinen Browser, der dich über neue Einträge in deinen wichtigsten RSS- oder Atom-Feeds benachrichtigt.
+
+Funktionen:
+- Überwacht jeden Feed: Funktioniert mit jeder gültigen RSS- oder Atom-Feed-URL.
+- Anpassbares Intervall: Lege fest, wie oft der Feed überprüft werden soll.
+- Sofortige Benachrichtigungen: Erhalte eine Desktop-Benachrichtigung für jedes Update.
+- Badge-Anzeige: Ein Abzeichen auf dem Toolbar-Icon zeigt dir auf einen Blick Neuigkeiten an.
+- Dark-Mode: Die Options-Seite passt sich automatisch dem Theme deines Browsers an.
+- Datenschutz an erster Stelle: Es werden keinerlei Daten gesendet. 100% offline.
+- Mehrsprachig: Die Benutzeroberfläche ist in vielen Sprachen verfügbar.
+
+--------------------------------------------------------------------------------
+Language: Spanish (es)
+Category: Productividad (Productivity)
+Edge Search Terms: RSS, Atom, Feed, Notificador, Lector, Monitor, Actualizaciones
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+Un monitor de feeds sencillo y centrado en la privacidad que te notifica sobre nuevas entradas en tus feeds RSS o Atom importantes.
+
+Description:
+Un monitor de feeds sencillo y respetuoso con la privacidad para tu navegador que te notifica sobre nuevas entradas en tus feeds RSS o Atom más importantes.
+
+Características:
+- Monitoriza cualquier Feed: Funciona con cualquier URL de feed RSS o Atom válida.
+- Intervalo personalizable: Configura con qué frecuencia se debe comprobar el feed.
+- Notificaciones instantáneas: Recibe un aviso de escritorio para cada actualización.
+- Indicador en el icono: El icono de la barra de herramientas te muestra rápidamente lo nuevo.
+- Soporte modo oscuro: La página de opciones se adapta al tema de tu navegador.
+- Privacidad primero: Nunca se envían datos a terceros. 100% offline.
+
+--------------------------------------------------------------------------------
+Language: French (fr)
+Category: Productivité (Productivity)
+Edge Search Terms: RSS, Atom, Flux, Notification, Lecteur, Moniteur, Mises à jour
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+Un moniteur de flux simple et respectueux de la vie privée qui t'informe des nouvelles entrées dans tes flux RSS ou Atom.
+
+Description:
+Un moniteur de flux simple et respectueux de la vie privée pour ton navigateur qui t'informe des nouvelles entrées dans tes flux RSS ou Atom les plus importants.
+
+Fonctionnalités :
+- Surveille n'importe quel flux : Fonctionne avec toute URL RSS ou Atom.
+- Intervalle personnalisable : Définissez la fréquence de vérification.
+- Notifications : Recevez une notification bureau dès qu'une mise à jour est trouvée.
+- Indicateur de badge : Vérifiez d'un coup d'œil si un flux a été mis à jour.
+- Mode sombre : La page s'adapte automatiquement à votre système.
+- La vie privée : Aucune donnée n'est envoyée au développeur. 100% hors ligne.
+
+--------------------------------------------------------------------------------
+Language: Portuguese - Brazil (pt_BR)
+Category: Produtividade (Productivity)
+Edge Search Terms: RSS, Atom, Feed, Notificador, Leitor, Monitor, Atualizações
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+Um monitor de feeds simples e focado na privacidade que notifica sobre novas entradas em seus feeds RSS ou Atom mais importantes.
+
+Description:
+Um monitor de feeds simples e focado na privacidade para o seu navegador que notifica sobre novas entradas em seus feeds RSS ou Atom mais importantes.
+
+Recursos:
+- Monitora qualquer Feed: Funciona com URL RSS ou Atom.
+- Intervalo personalizável: Defina a frequência de verificação do feed.
+- Notificações: Receba uma notificação na área de trabalho para cada atualização.
+- Indicador (Badge): Um emblema no ícone da barra de ferramentas mostra as novidades.
+- Modo Escuro: A página de opções se adapta automaticamente ao tema.
+- Privacidade: Nenhum dado é enviado. 100% offline.
+
+--------------------------------------------------------------------------------
+Language: Chinese - Simplified (zh_CN)
+Category: 生产力 (Productivity)
+Edge Search Terms: RSS, Atom, 订阅, 通知, 阅读器, 监控, 更新
+
+Title:
+FeeFier - 简易 RSS 订阅通知
+
+Short Description (max 132 chars):
+一款简单且注重隐私的订阅监控工具，当你的 RSS 或 Atom 订阅源有新内容时通知你。
+
+Description:
+FeeFier 是一款适用于你的浏览器的简单且注重隐私的订阅源监控扩展，当你最重要的 RSS 或 Atom 订阅源有新条目时会通知你。
+
+功能特点:
+- 监控任何订阅: 适用于任何有效的 RSS 或 Atom 订阅源网址。
+- 自定义检查时间: 设置检查源的频率。
+- 即时通知: 一旦发现更新，即可获取桌面通知。
+- 角标提示: 工具栏图标上的角标让你一目了然地知道是否有新内容。
+- 深色模式: 选项页面会自动适应浏览器的明暗主题。
+- 隐私至上: 不会将任何数据发送给第三方。100% 离线工作。
+
+--------------------------------------------------------------------------------
+Language: Japanese (ja)
+Category: 生産性 (Productivity)
+Edge Search Terms: RSS, Atom, フィード, 通知, リーダー, モニター, 更新
+
+Title:
+FeeFier - Feed Notifier
+
+Short Description (max 132 chars):
+シンプルでプライバシーを重視したフィードモニター。重要なRSSまたはAtomフィードの新しいエントリについて通知します。
+
+Description:
+FeeFierは、お使いのブラウザ向けのシンプルでプライバシーを重視したフィードモニターです。最も重要なRSSまたはAtomフィードに新しいエントリがあると通知します。
+
+機能の特徴:
+- 任意のフィードを監視: 有効なRSSまたはAtomフィードに使用できます。
+- 同期間隔の設定: フィードを確認する頻度を細かく設定します。
+- 即時通知: 更新が見つかるとすぐにデスクトップ通知を受け取ります。
+- バッジ表示: アイコンのバッジで、新しいものがあるかを一目で確認できます。
+- ダークモード: オプションページはテーマに自動適応します。
+- プライバシー第一: 第三者にデータが送信されることはありません。100%オフライン。
