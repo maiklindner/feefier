@@ -23,6 +23,18 @@
   "statusError": {
     "message": "Veuillez entrer une URL valide et un intervalle (>= 1 minute)."
   },
+  "popupRefresh": {
+    "message": "Actualiser"
+  },
+  "popupEmpty": {
+    "message": "Aucune nouvelle entrée"
+  },
+  "popupOpenAll": {
+    "message": "Tout Ouvrir"
+  },
+  "popupMarkRead": {
+    "message": "Marquer Comme Lu"
+  },
   "notificationTitle": {
     "message": "Flux Mis à Jour !"
   },

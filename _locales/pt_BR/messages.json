@@ -23,6 +23,18 @@
   "statusError": {
     "message": "Por favor, insira uma URL válida e um intervalo (>= 1 minuto)."
   },
+  "popupRefresh": {
+    "message": "Atualizar"
+  },
+  "popupEmpty": {
+    "message": "Nenhuma entrada nova"
+  },
+  "popupOpenAll": {
+    "message": "Abrir Tudo"
+  },
+  "popupMarkRead": {
+    "message": "Marcar Como Lidas"
+  },
   "notificationTitle": {
     "message": "Feed Atualizado!"
   },

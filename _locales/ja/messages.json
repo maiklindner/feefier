@@ -23,6 +23,18 @@
   "statusError": {
     "message": "有効なURLと間隔（1分以上）を入力してください。"
   },
+  "popupRefresh": {
+    "message": "更新"
+  },
+  "popupEmpty": {
+    "message": "新しいエントリはありません"
+  },
+  "popupOpenAll": {
+    "message": "すべて開く"
+  },
+  "popupMarkRead": {
+    "message": "すべて既読にする"
+  },
   "notificationTitle": {
     "message": "フィードが更新されました！"
   },

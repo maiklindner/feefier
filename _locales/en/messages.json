@@ -23,6 +23,18 @@
   "statusError": {
     "message": "Please enter a valid URL and an interval (>= 1 minute)."
   },
+  "popupRefresh": {
+    "message": "Refresh"
+  },
+  "popupEmpty": {
+    "message": "No new entries"
+  },
+  "popupOpenAll": {
+    "message": "Open All"
+  },
+  "popupMarkRead": {
+    "message": "Mark All Read"
+  },
   "notificationTitle": {
     "message": "Feed Updated!"
   },

@@ -135,24 +135,46 @@
       padding: 1.5em;
       margin-bottom: 1.5em;
       position: relative;
+      display: flex;
+      gap: 1em;
+      align-items: flex-end;
       transition: all 0.3s ease;
+    }
+
+    .feed-input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feed-input-group.url-group {
+      flex-grow: 1;
+    }
+
+    .feed-input-group.interval-group {
+      flex-shrink: 0;
+      width: 140px;
     }
 
     .feed-row label {
       margin-top: 0 !important;
+      margin-bottom: 0.4em;
     }
 
     .feed-row input {
-      margin-bottom: 1.2em;
+      margin-bottom: 0;
     }
 
     button.remove-btn {
       margin-top: 0;
-      padding: 10px;
+      padding: 10px 16px;
+      height: 48px; /* Match input height */
       background-color: transparent;
       color: var(--error-color);
       border: 1px solid var(--error-color);
       font-weight: 600;
+      flex-shrink: 0;
+      width: auto;
+      white-space: nowrap;
     }
 
     button.remove-btn:hover {
@@ -191,7 +213,6 @@
 
     <button id="addFeedButton" type="button" style="margin-top: 1em; background-color: var(--label-color);"></button>
 
-    <button id="saveButton" type="button"></button>
     <div id="status"></div>
   </div>
 

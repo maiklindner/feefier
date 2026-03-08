@@ -35,7 +35,6 @@ function initLocalization(callback) {
 function localizeHtmlPage() {
   document.getElementById('pageTitle').textContent = getMessage('optionsTitle');
   document.getElementById('optionsH1').textContent = getMessage('optionsTitle');
-  document.getElementById('saveButton').textContent = getMessage('saveButton');
   document.getElementById('addFeedButton').textContent = getMessage('optionsAddFeed');
   
   document.querySelectorAll('.feed-row').forEach(row => {
@@ -54,8 +53,9 @@ function localizeHtmlPage() {
 // DOM DOM elements
 const feedsContainer = document.getElementById('feedsContainer');
 const addFeedButton = document.getElementById('addFeedButton');
-const saveButton = document.getElementById('saveButton');
 const statusDiv = document.getElementById('status');
+
+let saveTimeout;
 
 // Create feed row in DOM
 function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
@@ -63,6 +63,9 @@ function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
   row.className = 'feed-row';
   row.dataset.id = feed.id || Date.now().toString() + Math.random().toString(36).substr(2, 5);
 
+  const urlGroup = document.createElement('div');
+  urlGroup.className = 'feed-input-group url-group';
+  
   const urlLabel = document.createElement('label');
   urlLabel.textContent = getMessage('optionsFeedUrlLabel');
   const urlInput = document.createElement('input');
@@ -70,6 +73,14 @@ function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
   urlInput.placeholder = 'https://domain.com/rss.xml';
   urlInput.value = feed.url;
   urlInput.className = 'feed-url';
+  
+  urlInput.addEventListener('input', triggerAutoSave);
+  
+  urlGroup.appendChild(urlLabel);
+  urlGroup.appendChild(urlInput);
+
+  const intervalGroup = document.createElement('div');
+  intervalGroup.className = 'feed-input-group interval-group';
 
   const intervalLabel = document.createElement('label');
   intervalLabel.textContent = getMessage('optionsIntervalLabel');
@@ -79,24 +90,34 @@ function createFeedRow(feed = { id: '', url: '', interval: 15 }) {
   intervalInput.value = feed.interval;
   intervalInput.className = 'feed-interval';
 
+  intervalInput.addEventListener('input', triggerAutoSave);
+
+  intervalGroup.appendChild(intervalLabel);
+  intervalGroup.appendChild(intervalInput);
+
   const removeBtn = document.createElement('button');
   removeBtn.type = 'button';
   removeBtn.className = 'remove-btn';
   removeBtn.textContent = getMessage('optionsRemoveFeed');
   removeBtn.onclick = () => {
     row.remove();
+    triggerAutoSave();
   };
 
-  row.appendChild(urlLabel);
-  row.appendChild(urlInput);
-  row.appendChild(intervalLabel);
-  row.appendChild(intervalInput);
+  row.appendChild(urlGroup);
+  row.appendChild(intervalGroup);
   row.appendChild(removeBtn);
 
   feedsContainer.appendChild(row);
 }
 
 // Save options
+// Save options
+function triggerAutoSave() {
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(saveOptions, 500); // 500ms debounce
+}
+
 function saveOptions() {
   const rows = document.querySelectorAll('.feed-row');
   const feeds = [];
@@ -104,12 +125,13 @@ function saveOptions() {
 
   rows.forEach(row => {
     const url = row.querySelector('.feed-url').value.trim();
-    const interval = parseInt(row.querySelector('.feed-interval').value, 10);
+    const intervalElement = row.querySelector('.feed-interval').value;
+    const interval = intervalElement ? parseInt(intervalElement, 10) : 0;
     const id = row.dataset.id;
 
     if (url && interval >= 1) {
       feeds.push({ id, url, interval });
-    } else if (url || interval) {
+    } else if (url || intervalElement) {
       // Partially filled row is treated as invalid
       valid = false;
     }
@@ -157,5 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-saveButton.addEventListener('click', saveOptions);
+
 addFeedButton.addEventListener('click', () => createFeedRow());

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="popupTitle">Feed Notifier</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1 id="popupH1"></h1>
+    <div class="header-actions">
+      <button id="refreshBtn" class="action-btn" title="Refresh">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+      </button>
+      <button id="openAllBtn" class="action-btn" title="Open All">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </button>
+      <button id="markReadBtn" class="action-btn" title="Mark All Read">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </button>
+      <button id="settingsBtn" class="action-btn" title="Settings">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="emptyState" class="empty-state">
+    <svg width="80" height="80" viewBox="0 0 1500 1500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+        <g id="FeeFier-Bakcground" serif:id="FeeFier Bakcground" transform="matrix(6.174923,0,0,6.174923,-40.868184,-40.390087)">
+            <path d="M54.952,199.854C56.613,201.621 57.542,203.959 57.542,206.39C57.542,211.625 53.235,215.932 48,215.932C45.441,215.932 42.987,214.903 41.193,213.077C-4.901,166.152 -4.905,89.866 41.179,42.937C42.981,41.018 45.5,39.927 48.133,39.927C53.365,39.927 57.67,44.233 57.67,49.465C57.67,52.033 56.633,54.495 54.794,56.29C15.977,95.853 15.981,160.126 54.807,199.683C54.86,199.737 54.908,199.794 54.952,199.854ZM54.677,201.975C54.871,201.819 55.027,201.614 55.128,201.375C55.211,201.176 55.25,200.967 55.247,200.761C55.247,200.961 55.208,201.163 55.128,201.355C55.026,201.598 54.866,201.805 54.668,201.962C54.671,201.966 54.674,201.971 54.677,201.975ZM128,86.463C150.787,86.463 169.537,105.213 169.537,128C169.537,150.787 150.787,169.537 128,169.537C105.213,169.537 86.463,150.787 86.463,128C86.463,105.213 105.213,86.463 128,86.463ZM128,150.463C140.323,150.463 150.463,140.323 150.463,128C150.463,115.677 140.323,105.537 128,105.537C115.677,105.537 105.537,115.677 105.537,128C105.537,140.323 115.677,150.463 128,150.463ZM203.126,159.739C199.623,168.021 194.774,175.666 188.775,182.366L188.759,182.384C186.955,184.336 184.413,185.448 181.755,185.448C176.523,185.448 172.217,181.142 172.217,175.91C172.217,173.616 173.045,171.397 174.548,169.663L174.565,169.644C195.685,146.063 195.687,109.958 174.574,86.376C172.95,84.615 172.048,82.306 172.048,79.91C172.048,74.678 176.353,70.373 181.585,70.373C184.345,70.373 186.973,71.571 188.783,73.653C209.757,97.128 215.356,130.73 203.127,159.737L203.126,159.739ZM70.416,103.689C61.029,125.912 65.32,151.667 81.406,169.645L81.422,169.663C82.925,171.397 83.753,173.616 83.753,175.91C83.753,181.142 79.447,185.448 74.215,185.448C71.557,185.448 69.015,184.336 67.211,182.384L67.195,182.366C39.613,151.579 39.613,104.431 67.193,73.646C69.004,71.618 71.597,70.457 74.315,70.457C79.553,70.457 83.863,74.767 83.863,80.005C83.863,82.35 82.999,84.615 81.437,86.364L81.433,86.368C76.827,91.492 73.104,97.345 70.416,103.689ZM249.537,128C249.586,159.803 237.107,190.379 214.82,213.064C213.019,214.983 210.5,216.073 207.867,216.073C202.635,216.073 198.33,211.767 198.33,206.535C198.33,203.967 199.367,201.505 201.206,199.71C240.023,160.147 240.019,95.874 201.194,56.318C199.437,54.533 198.451,52.125 198.451,49.62C198.451,44.381 202.761,40.071 208,40.071C210.558,40.071 213.011,41.099 214.806,42.922L214.807,42.922C237.102,65.61 249.586,96.191 249.537,128Z" style="fill-opacity:0.6; fill: var(--label-color);"/>
+        </g>
+    </svg>
+    <p id="emptyMsg">No new entries</p>
+  </div>
+
+  <div id="listContainer" class="list-container" style="display: none;">
+    <!-- Items dynamically injected here -->
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

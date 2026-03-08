@@ -23,6 +23,18 @@
   "statusError": {
     "message": "请输入有效的 URL 和时间间隔（>= 1分钟）。"
   },
+  "popupRefresh": {
+    "message": "刷新"
+  },
+  "popupEmpty": {
+    "message": "没有新条目"
+  },
+  "popupOpenAll": {
+    "message": "全部打开"
+  },
+  "popupMarkRead": {
+    "message": "全部标记为已读"
+  },
   "notificationTitle": {
     "message": "订阅源已更新！"
   },

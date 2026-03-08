@@ -71,6 +71,24 @@ chrome.alarms.onAlarm.addListener((alarm) => {
   }
 });
 
+// Manual refresh from popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'forceCheckFeeds') {
+    console.log("Manual refresh triggered from popup.");
+    chrome.storage.sync.get(['feeds'], (items) => {
+      if (items.feeds) {
+        // Run checks concurrently
+        Promise.all(items.feeds.map(feed => checkFeed(feed))).then(() => {
+          sendResponse({ status: 'done' });
+        });
+      } else {
+        sendResponse({ status: 'done' });
+      }
+    });
+    return true; // Keep message channel open for async response
+  }
+});
+
 async function checkFeed(feed) {
   const url = feed.url;
   if (!url) return;
@@ -83,30 +101,76 @@ async function checkFeed(feed) {
     }
     const feedText = await response.text();
 
-    // Extract up to 3 item/entry tags
-    const itemRegex = /<item>[\s\S]*?<\/item>|<entry>[\s\S]*?<\/entry>/gi;
+    // Extract item/entry tags
+    const itemRegex = /<(item|entry)>([\s\S]*?)<\/\1>/gi;
     let match;
-    const topItems = [];
-    while ((match = itemRegex.exec(feedText)) !== null && topItems.length < 3) {
-      topItems.push(match[0]);
+    const newItems = [];
+    
+    // We'll evaluate up to the first 5 items to see if they're new
+    let count = 0;
+    while ((match = itemRegex.exec(feedText)) !== null && count < 5) {
+      const itemContent = match[2];
+      
+      // Extract link (handling both <link>...url...</link> and <link href="url"/>)
+      let linkMatch = itemContent.match(/<link[^>]*href=["']([^"']+)["'][^>]*>/i);
+      if (!linkMatch) {
+         linkMatch = itemContent.match(/<link>([\s\S]*?)<\/link>/i);
+      }
+      const link = linkMatch ? linkMatch[1].trim() : '';
+
+      // Extract title
+      let title = 'No Title';
+      let titleMatch = itemContent.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      if (titleMatch && titleMatch[1]) {
+        title = titleMatch[1];
+        // Clean CDATA if present (handling newlines inside CDATA)
+        const cdataMatch = title.match(/<!\[CDATA\[([\s\S]*?)\]\]>/i);
+        if (cdataMatch && cdataMatch[1]) {
+          title = cdataMatch[1];
+        }
+        title = title.trim();
+      }
+
+      if (link) {
+        newItems.push({
+          title: title,
+          link: link,
+          feedUrl: url
+        });
+      }
+      count++;
     }
 
-    const cleanFeedText = topItems.join('\n\n---ITEM_DELIMITER---\n\n');
-    if (!cleanFeedText) {
-      console.log(`No new items/entries found for ${feed.id}`);
+    if (newItems.length === 0) {
+      console.log(`No items/entries found for ${feed.id}`);
       return;
     }
 
-    const storageKey = `lastFeedContent_${feed.id}`;
-    const storage = await chrome.storage.local.get([storageKey]);
+    // Now, we need to compare these against what we already know to find TRULY new ones.
+    // Instead of comparing a giant string block, we'll store a "history" of seen links per feed.
+    const historyKey = `seenLinks_${feed.id}`;
+    const storageResult = await chrome.storage.local.get([historyKey, 'unreadItems']);
+    const seenLinks = storageResult[historyKey] || [];
+    let unreadItems = storageResult.unreadItems || [];
+    
+    // Filter down to items whose link isn't in seenLinks
+    const trulyNewItems = newItems.filter(item => !seenLinks.includes(item.link));
 
-    // Check if cleaned content changed
-    if (storage[storageKey] !== cleanFeedText) {
-      console.log(`Feed content ${feed.id} changed!`);
+    if (trulyNewItems.length > 0) {
+      console.log(`Found ${trulyNewItems.length} new items for ${feed.id}!`);
 
-      await chrome.storage.local.set({ [storageKey]: cleanFeedText });
+      // Add to seen links so we don't alert on them again
+      const updatedSeenLinks = [...new Set([...seenLinks, ...trulyNewItems.map(i => i.link)])].slice(-50); // Keep last 50
+      
+      // Add to unread items to show in popup (put newest at the start)
+      unreadItems = [...trulyNewItems, ...unreadItems];
 
-      // Send notification
+      await chrome.storage.local.set({ 
+        [historyKey]: updatedSeenLinks,
+        unreadItems: unreadItems
+      });
+
+      // Send notification if requested (Optional, keeping existing logic)
       const notifTitle = chrome.i18n.getMessage('notificationTitle');
       const notifBody = chrome.i18n.getMessage('notificationBody');
 
@@ -118,17 +182,11 @@ async function checkFeed(feed) {
         priority: 2
       });
 
-      chrome.action.setIcon({
-        path: {
-          "16": "icons/icon16-active.png",
-          "48": "icons/icon48-active.png",
-          "128": "icons/icon128-active.png"
-        }
-      });
-      chrome.action.setBadgeText({ text: '!' });
+      // Update Badge and Icon
+      updateBadge(unreadItems.length);
 
     } else {
-      console.log(`Feed content ${feed.id} identical to last time.`);
+      console.log(`No genuinely new items for ${feed.id}.`);
     }
   } catch (error) {
     console.error(`--- ERROR PROCESSING FEED ${feed.id} ---`);
@@ -137,20 +195,31 @@ async function checkFeed(feed) {
   }
 }
 
-// User Action Notification
-chrome.action.onClicked.addListener(() => {
-  console.log("Action button clicked, checking all feeds immediately...");
-  chrome.storage.sync.get(['feeds'], (items) => {
-    if (items.feeds) {
-      items.feeds.forEach(feed => checkFeed(feed));
-      
-      // Give a tiny visual feedback that it started checking
-      chrome.action.setBadgeText({ text: ' ' });
-      chrome.action.setBadgeBackgroundColor({ color: '#f39c12' }); // orange
-      setTimeout(() => {
-        // Clear it back if no updates were found (checkFeed will overwrite if updates found)
-        chrome.action.setBadgeText({ text: '' });
-      }, 1000);
-    }
-  });
+// Helper to update the badge and icon state
+function updateBadge(count) {
+  if (count > 0) {
+    chrome.action.setBadgeText({ text: count.toString() });
+    chrome.action.setBadgeBackgroundColor({ color: '#D93025' });
+    chrome.action.setIcon({
+      path: {
+        "16": "icons/icon16-active.png",
+        "48": "icons/icon48-active.png",
+        "128": "icons/icon128-active.png"
+      }
+    });
+  } else {
+    chrome.action.setBadgeText({ text: '' });
+    chrome.action.setIcon({
+      path: {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    });
+  }
+}
+
+// Initial badge check on load
+chrome.storage.local.get({ unreadItems: [] }, (data) => {
+  updateBadge(data.unreadItems.length);
 });

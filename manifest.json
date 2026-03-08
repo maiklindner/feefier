@@ -21,6 +21,7 @@
     "open_in_tab": true
   },
   "action": {
+    "default_popup": "popup.html",
     "default_title": "__MSG_extName__"
   },
   "icons": {
