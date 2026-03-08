@@ -1,0 +1,33 @@
+# Privacy & Data Security (Chrome Web Store Disclosure)
+
+## Single Purpose: 
+FeeFier is a lightweight feed reader that monitors RSS/Atom feeds and notifies you of new entries via browser notifications.
+
+## Permissions Disclosure:
+- storage: 
+Required to save your feed URLs, check intervals, and cached feed content for comparison.
+
+- notifications: 
+Required to display a system notification when a new feed entry is detected.
+
+- alarms: 
+Required to schedule periodic background checks for new content without draining resources.
+
+- host_permissions (<all_urls>): 
+Required to fetch feed data from any URL you provide as a source.
+
+Remote Code: 
+None. This extension does not use or fetch any remote code.
+
+User Data: 
+No personal data, browsing history, or identifiers are collected, stored, or transmitted.
+
+Privacy Policy: 
+https://github.com/maiklindner/FeeFier/blob/main/PRIVACY.md
+
+## Test Instructions:
+1. Open the options page and enter a valid RSS/Atom feed URL (e.g., a news site).
+2. Set the check interval to 1 minute and save.
+3. Wait for the background check to complete.
+4. When a new entry is detected, a system notification will appear, and the extension badge will show the unread count.
+5. Click the extension icon to view the latest entries in the popup.
