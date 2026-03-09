@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3] - 2026-03-09
+
+### Added
+- **Auto-Focus**: The URL field is now automatically focused when adding a new feed for a faster setup.
+
+### Changed
+- **UI Refresh**: Added active row highlighting for better visual feedback during editing.
+- **Improved Workflow**: New feeds are now added to the top of the list for better accessibility.
+
+---
+
 ## [1.2] - 2026-03-07
 
 ### Added
