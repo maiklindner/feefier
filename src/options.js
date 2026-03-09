@@ -60,7 +60,7 @@ const statusDiv = document.getElementById('status');
 let saveTimeout;
 
 // Create feed row in DOM
-function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }) {
+function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }, atTop = false) {
   const row = document.createElement('div');
   row.className = 'feed-row';
   row.dataset.id = feed.id || Date.now().toString() + Math.random().toString(36).substr(2, 5);
@@ -132,7 +132,12 @@ function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }) 
   row.appendChild(toggleWrapper);
   row.appendChild(removeBtn);
 
-  feedsContainer.appendChild(row);
+  if (atTop) {
+    feedsContainer.prepend(row);
+    urlInput.focus();
+  } else {
+    feedsContainer.appendChild(row);
+  }
 }
 
 // Save options
@@ -205,4 +210,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-addFeedButton.addEventListener('click', () => createFeedRow());
+addFeedButton.addEventListener('click', () => createFeedRow(undefined, true));
