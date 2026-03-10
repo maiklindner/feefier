@@ -25,7 +25,7 @@
 You have three options to install FeeFier:
 
 **1. Chrome Web Store**
-*Link coming soon*
+https://chromewebstore.google.com/detail/feefier-feed-notifier/oebinaipimoikjledbondfpglifplndj
 
 **2. Microsoft Edge Add-ons**
 *Link coming soon*
@@ -34,7 +34,7 @@ You have three options to install FeeFier:
 1. Clone this repository or download the ZIP and extract it.
 2. Open Chrome/Edge and navigate to `chrome://extensions` or `edge://extensions`.
 3. Enable **Developer mode** in the top right corner.
-4. Click **Load unpacked** and select the extension folder.
+4. Click **Load unpacked** and select the src folder.
 
 ## Usage
 
