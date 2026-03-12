@@ -139,7 +139,8 @@ async function checkFeed(feed) {
         newItems.push({
           title: title,
           link: link,
-          feedUrl: url
+          feedUrl: url,
+          feedName: feed.name || ''
         });
       }
       count++;
@@ -182,7 +183,7 @@ async function checkFeed(feed) {
         type: 'basic',
         iconUrl: 'icons/icon128.png',
         title: notifTitle,
-        message: `${notifBody}\n${new URL(url).hostname}`,
+        message: `${notifBody}\n${feed.name || new URL(url).hostname}`,
         priority: 2
       });
 

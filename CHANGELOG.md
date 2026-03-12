@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4] - 2026-03-12
+
+### Added
+- **Feed Naming**: You can now give your feeds descriptive names to easily identify them in the popup and notifications.
+
+### Changed
+- **Layout Refinement**: Optimized the options page layout for better usability, placing the URL field at the top for maximum width.
+
+---
+
 ## [1.3] - 2026-03-09
 
 ### Added

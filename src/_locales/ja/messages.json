@@ -14,6 +14,12 @@
   "optionsIntervalLabel": {
     "message": "チェック間隔（分）:"
   },
+  "optionsFeedNameLabel": {
+    "message": "フィード名 (任意):"
+  },
+  "optionsFeedNamePlaceholder": {
+    "message": "例: テックニュース"
+  },
   "saveButton": {
     "message": "保存"
   },

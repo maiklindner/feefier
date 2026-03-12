@@ -68,10 +68,10 @@ function renderList() {
   listContainer.innerHTML = '';
   
   currentUnreadItems.forEach((item, index) => {
-    let domain = 'Unknown source';
+    let sourceText = item.feedName || 'Unknown source';
     try {
-      if (item.feedUrl) {
-         domain = new URL(item.feedUrl).hostname;
+      if (!item.feedName && item.feedUrl) {
+         sourceText = new URL(item.feedUrl).hostname;
       }
     } catch(e) {}
 
@@ -85,7 +85,7 @@ function renderList() {
     
     const source = document.createElement('div');
     source.className = 'feed-item-domain';
-    source.textContent = domain;
+    source.textContent = sourceText;
     
     div.appendChild(title);
     div.appendChild(source);

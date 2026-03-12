@@ -14,6 +14,12 @@
   "optionsIntervalLabel": {
     "message": "Intervalo de comprobación (en minutos):"
   },
+  "optionsFeedNameLabel": {
+    "message": "Nombre del feed (opcional):"
+  },
+  "optionsFeedNamePlaceholder": {
+    "message": "p. ej. Noticias tecnológicas"
+  },
   "saveButton": {
     "message": "Guardar"
   },

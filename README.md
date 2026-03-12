@@ -11,6 +11,7 @@
 
 ## Features
 
+* **Feed Naming:** Assign descriptive names to your feeds to identify them at a glance.
 * **Monitors any Feed:** Works with any valid RSS or Atom feed URL.
 * **Customizable Interval:** Set how often the feed should be checked.
 * **Individual Toggles:** Pause monitoring for specific feeds anytime without deleting them.
@@ -38,8 +39,9 @@ You have three options to install FeeFier:
 
 1.  After installation, **right-click** the Feed Notifier icon in your toolbar and select **"Options"**.
 2.  Enter the full URL of the feed you want to monitor (e.g., `https://www.tagesschau.de/newsticker.rdf`).
-3.  Set your desired check interval in minutes (e.g., `15`).
-4.  Click **"Save"**.
+3.  (Optional) Enter a **Name** for the feed to easily identify it in notifications.
+4.  Set your desired check interval in minutes (e.g., `15`).
+5.  Click **"Save"**.
 
 The extension will now check the feed in the background. If an update is found, a `!` badge will appear on the icon and a system notification will be shown. A **left-click** on the icon clears the badge and triggers a manual check.
 

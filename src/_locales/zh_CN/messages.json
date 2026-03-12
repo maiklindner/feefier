@@ -14,6 +14,12 @@
   "optionsIntervalLabel": {
     "message": "检查间隔（分钟）："
   },
+  "optionsFeedNameLabel": {
+    "message": "Feed 名称 (可选):"
+  },
+  "optionsFeedNamePlaceholder": {
+    "message": "例如：科技新闻"
+  },
   "saveButton": {
     "message": "保存"
   },

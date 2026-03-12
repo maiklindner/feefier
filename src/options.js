@@ -41,9 +41,10 @@ function localizeHtmlPage() {
   
   document.querySelectorAll('.feed-row').forEach(row => {
     const labels = row.querySelectorAll('label');
-    if (labels.length >= 2) {
+    if (labels.length >= 3) {
       labels[0].textContent = getMessage('optionsFeedUrlLabel');
-      labels[1].textContent = getMessage('optionsIntervalLabel');
+      labels[1].textContent = getMessage('optionsFeedNameLabel');
+      labels[2].textContent = getMessage('optionsIntervalLabel');
     }
     const removeBtn = row.querySelector('.remove-btn');
     if (removeBtn) {
@@ -60,10 +61,26 @@ const statusDiv = document.getElementById('status');
 let saveTimeout;
 
 // Create feed row in DOM
-function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }, atTop = false) {
+function createFeedRow(feed = { id: '', name: '', url: '', interval: 15, enabled: true }, atTop = false) {
   const row = document.createElement('div');
   row.className = 'feed-row';
   row.dataset.id = feed.id || Date.now().toString() + Math.random().toString(36).substr(2, 5);
+
+  const nameGroup = document.createElement('div');
+  nameGroup.className = 'feed-input-group name-group';
+  
+  const nameLabel = document.createElement('label');
+  nameLabel.textContent = getMessage('optionsFeedNameLabel');
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.placeholder = getMessage('optionsFeedNamePlaceholder');
+  nameInput.value = feed.name || '';
+  nameInput.className = 'feed-name';
+  
+  nameInput.addEventListener('input', triggerAutoSave);
+  
+  nameGroup.appendChild(nameLabel);
+  nameGroup.appendChild(nameInput);
 
   const urlGroup = document.createElement('div');
   urlGroup.className = 'feed-input-group url-group';
@@ -127,10 +144,16 @@ function createFeedRow(feed = { id: '', url: '', interval: 15, enabled: true }, 
   toggleGroup.appendChild(toggleSlider);
   toggleWrapper.appendChild(toggleGroup);
 
+  const bottomRow = document.createElement('div');
+  bottomRow.className = 'feed-row-bottom';
+
+  bottomRow.appendChild(nameGroup);
+  bottomRow.appendChild(intervalGroup);
+  bottomRow.appendChild(toggleWrapper);
+  bottomRow.appendChild(removeBtn);
+
   row.appendChild(urlGroup);
-  row.appendChild(intervalGroup);
-  row.appendChild(toggleWrapper);
-  row.appendChild(removeBtn);
+  row.appendChild(bottomRow);
 
   if (atTop) {
     feedsContainer.prepend(row);
@@ -153,6 +176,7 @@ function saveOptions() {
   let valid = true;
 
   rows.forEach(row => {
+    const name = row.querySelector('.feed-name').value.trim();
     const url = row.querySelector('.feed-url').value.trim();
     const intervalElement = row.querySelector('.feed-interval').value;
     const interval = intervalElement ? parseInt(intervalElement, 10) : 0;
@@ -160,7 +184,7 @@ function saveOptions() {
     const id = row.dataset.id;
 
     if (url && interval >= 1) {
-      feeds.push({ id, url, interval, enabled });
+      feeds.push({ id, name, url, interval, enabled });
     } else if (url || intervalElement) {
       // Partially filled row is treated as invalid
       valid = false;

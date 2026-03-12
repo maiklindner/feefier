@@ -14,6 +14,12 @@
   "optionsIntervalLabel": {
     "message": "Check interval (in minutes):"
   },
+  "optionsFeedNameLabel": {
+    "message": "Feed Name (Optional):"
+  },
+  "optionsFeedNamePlaceholder": {
+    "message": "e.g. Tech News"
+  },
   "saveButton": {
     "message": "Save"
   },

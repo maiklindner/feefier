@@ -14,6 +14,12 @@
   "optionsIntervalLabel": {
     "message": "Intervalle de vérification (en minutes) :"
   },
+  "optionsFeedNameLabel": {
+    "message": "Nom du flux (facultatif) :"
+  },
+  "optionsFeedNamePlaceholder": {
+    "message": "p. ex. Nouvelles technologiques"
+  },
   "saveButton": {
     "message": "Enregistrer"
   },
