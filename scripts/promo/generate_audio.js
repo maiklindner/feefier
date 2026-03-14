@@ -52,8 +52,8 @@ async function run() {
         let text = script[i];
         let isSsml = false;
 
-        // Skip SSML for Chirp3-HD voices, as they handle branding better without it or with dot trick
-        if (text.includes('FeeFier') && !localeData.voice.includes('Chirp3-HD')) {
+        // MANDATORY PREMIUM PHONATION
+        if (text.includes('FeeFier')) {
             const ipa = lang === 'ja' ? 'fiːfaɪaː' : 'fiːfaɪər';
             text = `<speak><phoneme alphabet="ipa" ph="${ipa}">FeeFier</phoneme></speak>`;
             isSsml = true;
