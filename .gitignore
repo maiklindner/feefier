@@ -25,3 +25,6 @@ build/
 *.crx
 *.pem
 *.pub
+keys/
+.env
+scripts/promo/output/

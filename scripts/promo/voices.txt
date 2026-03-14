@@ -1,0 +1,177 @@
+Albert              en_US    # Hello! My name is Albert.
+Alice               it_IT    # Ciao! Mi chiamo Alice.
+Alva                sv_SE    # Hej! Jag heter Alva.
+Amélie              fr_CA    # Bonjour! Je m’appelle Amélie.
+Amira               ms_MY    # Hi my name is Amira
+Anna                de_DE    # Hallo! Ich heiße Anna.
+Bad News            en_US    # Hello! My name is Bad News.
+Bahh                en_US    # Hello! My name is Bahh.
+Bells               en_US    # Hello! My name is Bells.
+Boing               en_US    # Hello! My name is Boing.
+Bubbles             en_US    # Hello! My name is Bubbles.
+Carmit              he_IL    # שלום, שמי כרמית.
+Cellos              en_US    # Hello! My name is Cellos.
+Damayanti           id_ID    # Halo! Nama saya Damayanti.
+Daniel              en_GB    # Hello! My name is Daniel.
+Daria               bg_BG    # Hello! My name is Daria.
+Wobble              en_US    # Hello! My name is Wobble.
+Eddy (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Eddy.
+Eddy (Englisch (UK)) en_GB    # Hello! My name is Eddy.
+Eddy (Englisch (USA)) en_US    # Hello! My name is Eddy.
+Eddy (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Eddy.
+Eddy (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Eddy.
+Eddy (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Eddy.
+Eddy (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Eddy.
+Eddy (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Eddy.
+Eddy (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Eddy.
+Eddy (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はEddyです。
+Eddy (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Eddy입니다.
+Eddy (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Eddy.
+Eddy (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Eddy。
+Eddy (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Eddy。
+Ellen               nl_BE    # Hallo! Mijn naam is Ellen.
+Flo (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Flo.
+Flo (Englisch (UK)) en_GB    # Hello! My name is Flo.
+Flo (Englisch (USA)) en_US    # Hello! My name is Flo.
+Flo (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Flo.
+Flo (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Flo.
+Flo (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Flo.
+Flo (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Flo.
+Flo (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Flo.
+Flo (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Flo.
+Flo (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はFloです。
+Flo (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Flo입니다.
+Flo (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Flo.
+Flo (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Flo。
+Flo (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Flo。
+Fred                en_US    # Hello! My name is Fred.
+Good News           en_US    # Hello! My name is Good News.
+Grandma (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Grandma.
+Grandma (Englisch (UK)) en_GB    # Hello! My name is Grandma.
+Grandma (Englisch (USA)) en_US    # Hello! My name is Grandma.
+Grandma (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Grandma.
+Grandma (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Grandma.
+Grandma (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Grandma.
+Grandma (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Grandma.
+Grandma (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Grandma.
+Grandma (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Grandma.
+Grandma (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はGrandmaです。
+Grandma (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Grandma입니다.
+Grandma (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Grandma.
+Grandma (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Grandma。
+Grandma (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Grandma。
+Grandpa (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Grandpa.
+Grandpa (Englisch (UK)) en_GB    # Hello! My name is Grandpa.
+Grandpa (Englisch (USA)) en_US    # Hello! My name is Grandpa.
+Grandpa (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Grandpa.
+Grandpa (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Grandpa.
+Grandpa (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Grandpa.
+Grandpa (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Grandpa.
+Grandpa (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Grandpa.
+Grandpa (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Grandpa.
+Grandpa (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はGrandpaです。
+Grandpa (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Grandpa입니다.
+Grandpa (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Grandpa.
+Grandpa (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Grandpa。
+Grandpa (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Grandpa。
+Jester              en_US    # Hello! My name is Jester.
+Ioana               ro_RO    # Salut! Numele meu este Ioana.
+Jacques             fr_FR    # Bonjour, je m’appelle Jacques.
+Joana               pt_PT    # Olá! Chamo‑me Joana.
+Junior              en_US    # Hello! My name is Junior.
+Kanya               th_TH    # สวัสดี! ฉันชื่อกันยา
+Karen               en_AU    # Hi my name is Karen
+Kathy               en_US    # Hello! My name is Kathy.
+Kyoko               ja_JP    # こんにちは! 私の名前はKyokoです。
+Lana                hr_HR    # Bok, zovem se Lana.
+Laura               sk_SK    # Ahoj, volám sa Laura.
+Lekha               hi_IN    # नमस्ते, मेरा नाम लेखा है।
+Lesya               uk_UA    # Привіт! Мене звуть Леся.
+Linh                vi_VN    # Xin chào! Tên tôi là Linh.
+Luciana             pt_BR    # Olá, meu nome é Luciana.
+Majed               ar_001   # مرحبًا! اسمي ماجد.
+Tünde               hu_HU    # Üdvözlöm! A nevem Tünde.
+Meijia              zh_TW    # 你好，我叫美佳。
+Melina              el_GR    # Χαίρετε! Το όνομά μου είναι «Μελίνα».
+Milena              ru_RU    # Здравствуйте! Меня зовут Милена.
+Moira               en_IE    # Hello! My name is Moira.
+Mónica              es_ES    # ¡Hola! Me llamo Mónica.
+Montse              ca_ES    # Hola! Em dic Montse.
+Nora                nb_NO    # Hei! Jeg heter Nora.
+Organ               en_US    # Hello! My name is Organ.
+Paulina             es_MX    # ¡Hola! Me llamo Paulina.
+Superstar           en_US    # Hello! My name is Superstar.
+Ralph               en_US    # Hello! My name is Ralph.
+Reed (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Reed.
+Reed (Englisch (UK)) en_GB    # Hello! My name is Reed.
+Reed (Englisch (USA)) en_US    # Hello! My name is Reed.
+Reed (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Reed.
+Reed (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Reed.
+Reed (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Reed.
+Reed (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Reed.
+Reed (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Reed.
+Reed (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はReedです。
+Reed (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Reed입니다.
+Reed (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Reed.
+Reed (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Reed。
+Reed (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Reed。
+Rishi               en_IN    # Hello! My name is Rishi.
+Rocko (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Rocko.
+Rocko (Englisch (UK)) en_GB    # Hello! My name is Rocko.
+Rocko (Englisch (USA)) en_US    # Hello! My name is Rocko.
+Rocko (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Rocko.
+Rocko (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Rocko.
+Rocko (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Rocko.
+Rocko (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Rocko.
+Rocko (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Rocko.
+Rocko (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Rocko.
+Rocko (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はRockoです。
+Rocko (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Rocko입니다.
+Rocko (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Rocko.
+Rocko (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Rocko。
+Rocko (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Rocko。
+Samantha            en_US    # Hello! My name is Samantha.
+Sandy (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Sandy.
+Sandy (Englisch (UK)) en_GB    # Hello! My name is Sandy.
+Sandy (Englisch (USA)) en_US    # Hello! My name is Sandy.
+Sandy (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Sandy.
+Sandy (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Sandy.
+Sandy (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Sandy.
+Sandy (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Sandy.
+Sandy (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Sandy.
+Sandy (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Sandy.
+Sandy (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はSandyです。
+Sandy (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Sandy입니다.
+Sandy (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Sandy.
+Sandy (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Sandy。
+Sandy (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Sandy。
+Sara                da_DK    # Hej! Jeg hedder Sara.
+Satu                fi_FI    # Hei! Nimeni on Satu.
+Shelley (Deutsch (Deutschland)) de_DE    # Hallo! Ich heiße Shelley.
+Shelley (Englisch (UK)) en_GB    # Hello! My name is Shelley.
+Shelley (Englisch (USA)) en_US    # Hello! My name is Shelley.
+Shelley (Spanisch (Spanien)) es_ES    # ¡Hola! Me llamo Shelley.
+Shelley (Spanisch (Mexiko)) es_MX    # ¡Hola! Me llamo Shelley.
+Shelley (Finnisch (Finnland)) fi_FI    # Hei! Nimeni on Shelley.
+Shelley (Französisch (Kanada)) fr_CA    # Bonjour! Je m’appelle Shelley.
+Shelley (Französisch (Frankreich)) fr_FR    # Bonjour, je m’appelle Shelley.
+Shelley (Italienisch (Italien)) it_IT    # Ciao! Mi chiamo Shelley.
+Shelley (Japanisch (Japan)) ja_JP    # こんにちは! 私の名前はShelleyです。
+Shelley (Koreanisch (Südkorea)) ko_KR    # 안녕하세요. 제 이름은 Shelley입니다.
+Shelley (Portugiesisch (Brasilien)) pt_BR    # Olá, meu nome é Shelley.
+Shelley (Chinesisch (China, Festland)) zh_CN    # 你好！我叫Shelley。
+Shelley (Chinesisch (Taiwan)) zh_TW    # 你好，我叫Shelley。
+Sinji               zh_HK    # 你好！我叫善怡。
+Tessa               en_ZA    # Hello! My name is Tessa.
+Thomas              fr_FR    # Bonjour, je m’appelle Thomas.
+Tina                sl_SI    # Živijo, ime mi je Tina.
+Tingting            zh_CN    # 你好！我叫婷婷。
+Trinoids            en_US    # Hello! My name is Trinoids.
+Vani                ta_IN    # Hello! My name is Vani.
+Whisper             en_US    # Hello! My name is Whisper.
+Xander              nl_NL    # Hallo! Mijn naam is Xander.
+Yelda               tr_TR    # Merhaba, benim adım Yelda.
+Yuna                ko_KR    # 안녕하세요. 제 이름은 유나입니다.
+Zarvox              en_US    # Hello! My name is Zarvox.
+Zosia               pl_PL    # Hi my name is Zosia
+Zuzana              cs_CZ    # Hi my name is Zuzana
