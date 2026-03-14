@@ -1,7 +1,7 @@
 {
   "locales": {
     "en": {
-      "voice": "en-US-Studio-Q",
+      "voice": "en-US-Chirp3-HD-Enceladus",
       "flag": "--lang=en-US",
       "feedName": "Tech & Innovation",
       "feedUrl": "https://example.com/tech.xml",
@@ -14,12 +14,12 @@
         "Stay updated on your schedule with customizable refresh intervals.",
         "Get instant notifications directly in your browser.",
         "Your data belongs to you. Secure, fast, and private.",
-        "FeeFier"
+        "FeeFier."
       ],
       "features": ["Smart Fetching", "Dark Mode", "Privacy First"]
     },
     "de": {
-      "voice": "de-DE-Studio-B",
+      "voice": "de-DE-Chirp3-HD-Enceladus",
       "flag": "--lang=de",
       "feedName": "Technik & Innovation",
       "feedUrl": "https://example.com/tech.xml",
@@ -28,16 +28,16 @@
         { "name": "Weltraumforschung", "url": "https://example.com/weltraum.xml" }
       ],
       "script": [
-        "Verwalte all deine Feeds an einem zentralen Ort.",
-        "Bleibe immer auf dem neuesten Stand mit anpassbaren Intervallen.",
-        "Erhalte sofortige Benachrichtigungen direkt im Browser.",
-        "Deine Daten gehören dir. Sicher, schnell und privat.",
-        "FeeFier"
+        " Verwalte all deine Feeds an einem zentralen Ort.",
+        " Bleibe immer auf dem neuesten Stand mit anpassbaren Intervallen.",
+        " Erhalte sofortige Benachrichtigungen direkt im Browser.",
+        " Deine Daten gehören dir. Sicher, schnell und privat.",
+        "FeeFier."
       ],
       "features": ["Smart Fetching", "Dunkelmodus", "Datenschutz zuerst"]
     },
     "ja": {
-      "voice": "ja-JP-Neural2-D",
+      "voice": "ja-JP-Chirp3-HD-Enceladus",
       "flag": "--lang=ja",
       "feedName": "テクノロジーとイノベーション",
       "feedUrl": "https://example.com/tech.xml",
@@ -50,12 +50,12 @@
         "スケジュールに合わせて最新情報をチェックしましょう。",
         "ブラウザで即座に通知を受け取ることができます。",
         "あなたのデータはあなたのものです。安全、高速、プライベート。",
-        "FeeFier"
+        "FeeFier."
       ],
       "features": ["スマート取得", "ダークモード", "プライバシー重視"]
     },
     "es": {
-      "voice": "es-ES-Studio-F",
+      "voice": "es-ES-Chirp3-HD-Enceladus",
       "flag": "--lang=es",
       "feedName": "Tecnología e Innovación",
       "feedUrl": "https://example.com/tech.xml",
@@ -68,12 +68,12 @@
         "Mantente al día según tu horario con intervalos personalizables.",
         "Recibe notificaciones instantáneas directamente en tu navegador.",
         "Tus datos te pertenecen. Seguro, rápido y privado.",
-        "FeeFier"
+        "FeeFier."
       ],
       "features": ["Sincronização Inteligente", "Modo Oscuro", "Privacidad Primero"]
     },
     "fr": {
-      "voice": "fr-FR-Studio-D",
+      "voice": "fr-FR-Chirp3-HD-Enceladus",
       "flag": "--lang=fr",
       "feedName": "Technologie et Innovation",
       "feedUrl": "https://example.com/tech.xml",
@@ -86,12 +86,12 @@
         "Restez à jour selon votre emploi du temps avec des intervalles personnalisables.",
         "Recevez des notifications instantanées directement dans votre navigateur.",
         "Vos données vous appartiennent. Sûr, rapide et privé.",
-        "FeeFier"
+        "FeeFier."
       ],
       "features": ["Récupération Intelligente", "Mode Sombre", "Vie Privée d'abord"]
     },
     "pt_BR": {
-      "voice": "pt-BR-Neural2-B",
+      "voice": "pt-BR-Chirp3-HD-Enceladus",
       "flag": "--lang=pt-BR",
       "feedName": "Tecnologia e Inovação",
       "feedUrl": "https://example.com/tech.xml",
@@ -103,13 +103,13 @@
         "Gerencie todos os seus feeds favoritos em um só lugar.",
         "Mantenha-se atualizado no seu horário com intervalos personalizáveis.",
         "Receba notificações instantâneas diretamente no seu navegador.",
-        "Seus dados pertencem a você. Seguro, rápido e privado.",
-        "FeeFier"
+        "Seus datos pertencem a você. Seguro, rápido e privado.",
+        "FeeFier."
       ],
       "features": ["Busca Inteligente", "Modo Escuro", "Privacidade Primeiro"]
     },
     "zh_CN": {
-      "voice": "cmn-CN-Wavenet-C",
+      "voice": "cmn-CN-Chirp3-HD-Enceladus",
       "flag": "--lang=zh-CN",
       "feedName": "科技与创新",
       "feedUrl": "https://example.com/tech.xml",
@@ -119,10 +119,10 @@
       ],
       "script": [
         "在一个整洁的地方管理你所有喜爱的订阅源。",
-        "按照你的计划，通过可自定义的刷新间隔保持更新。",
+        "通过自定义刷新间隔，随时保持更新。",
         "直接在浏览器中获取即时通知。",
         "你的数据属于你。安全、快速且私密。",
-        "FeeFier"
+        "FeeFier."
       ],
       "features": ["智能获取", "深色模式", "隐私优先"]
     }

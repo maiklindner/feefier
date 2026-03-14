@@ -52,14 +52,16 @@ async function run() {
         let text = script[i];
         let isSsml = false;
 
-        if (text === 'FeeFier') {
-            // Refined IPA for JA to sound more natural with Japanese engines
+        // Skip SSML for Chirp3-HD voices, as they handle branding better without it or with dot trick
+        if (text.includes('FeeFier') && !localeData.voice.includes('Chirp3-HD')) {
             const ipa = lang === 'ja' ? 'fiːfaɪaː' : 'fiːfaɪər';
             text = `<speak><phoneme alphabet="ipa" ph="${ipa}">FeeFier</phoneme></speak>`;
             isSsml = true;
         }
 
-        const hash = crypto.createHash('md5').update(text).digest('hex').substring(0, 8);
+        // Standardized hashing including voice to avoid cross-voice cache contamination
+        const hashInput = text + localeData.voice + (isSsml ? '_ssml' : '');
+        const hash = crypto.createHash('md5').update(hashInput).digest('hex').substring(0, 8);
         const outputPath = path.join(outputDir, `vo_${lang}_${i}_${hash}.mp3`);
         await generateAudio(text, localeData.voice, langCode, outputPath, force, isSsml);
     }
