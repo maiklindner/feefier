@@ -1,6 +1,7 @@
 const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const locales = require('./locales.json').locales;
 
 // PATHS
@@ -49,7 +50,15 @@ async function run() {
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
   const force = process.argv.includes('--force');
-  const targetLocales = ['en', 'de', 'ja', 'es', 'fr', 'pt_BR', 'zh_CN'];
+  let targetLocales = ['en', 'de', 'ja', 'es', 'fr', 'pt_BR', 'zh_CN'];
+
+  // LOCALE FILTERING
+  const localeArg = process.argv.find(arg => arg.startsWith('--locales=') || arg.startsWith('-l='));
+  if (localeArg) {
+    const requested = localeArg.split('=')[1].split(',');
+    targetLocales = targetLocales.filter(l => requested.includes(l));
+    console.log(`Filtering for locales: ${targetLocales.join(', ')}`);
+  }
 
   for (const lang of targetLocales) {
     const localeData = locales[lang];
