@@ -5,6 +5,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const locales = require('./locales.json').locales;
 const crypto = require('crypto');
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function getVoPath(audioDir, localeKey, index, text) {
     const localeData = locales[localeKey];
@@ -24,6 +25,22 @@ function getVoPath(audioDir, localeKey, index, text) {
     return path.join(audioDir, `vo_${localeKey}_${index}_${hash}.mp3`);
 }
 
+function getVideoHash(localeKey, extensionPath) {
+    // Hash includes interaction script (before audio mastering), locale data, and src folder
+    const scriptContent = fs.readFileSync(__filename, 'utf8').split('// --- Audio Merging')[0];
+    const localeData = locales[localeKey];
+    const features = JSON.stringify(localeData.features);
+    const brandName = localeData.script[localeData.script.length - 1];
+    
+    // Quick src hash (MacOS compatible)
+    const srcHash = execSync(`find "${extensionPath}" -type f -not -path '*/.*' -print0 | xargs -0 md5 | md5`, { encoding: 'utf8' }).trim();
+    
+    return crypto.createHash('md5')
+        .update(scriptContent + features + brandName + srcHash)
+        .digest('hex')
+        .substring(0, 10);
+}
+
 async function recordPromo(localeKey) {
     const localeData = locales[localeKey];
     if (!localeData) return;
@@ -31,20 +48,23 @@ async function recordPromo(localeKey) {
     console.log(`\n--- Recording FeeFier Promo: ${localeKey.toUpperCase()} ---`);
     const finalDir = path.resolve(__dirname, '../../assets/store/video');
     const audioDir = path.resolve(__dirname, '../../assets/store/audio');
-    const tempDir = path.join(__dirname, 'temp');
+    const cacheDir = path.join(finalDir, 'cache');
 
     if (!fs.existsSync(finalDir)) fs.mkdirSync(finalDir, { recursive: true });
-    if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+    if (!fs.existsSync(audioDir)) fs.mkdirSync(audioDir, { recursive: true });
+    if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
 
-    const videoPath = path.join(tempDir, `video_${localeKey}.mp4`);
     const finalPath = path.join(finalDir, `promo_${localeKey}.mp4`);
-    const music = '/Users/maik/Documents/GitHub/Extension-Conventions/src/sound/mklr_music.mp3';
+    const music = path.join(audioDir, 'mklr_music.mp3');
 
     const extensionPath = path.resolve('../../src');
-
+    const videoHash = getVideoHash(localeKey, extensionPath);
+    const videoPath = path.join(cacheDir, `raw_${localeKey}_${videoHash}.mp4`);
+    
     if (fs.existsSync(videoPath)) {
-        console.log(`Raw video already exists at ${videoPath}. Skipping recording phase.`);
+        console.log(`Using cached raw video: ${path.basename(videoPath)}`);
     } else {
+        console.log(`No cache found. Starting fresh Puppeteer recording...`);
         const browser = await puppeteer.launch({
             headless: false,
             args: [
@@ -64,7 +84,7 @@ async function recordPromo(localeKey) {
         page.on('pageerror', err => console.error(`[JavaScript Error]: ${err.message}`));
 
         // Wait for extension to load
-        await new Promise(r => setTimeout(r, 2000));
+        await delay(2000);
         const targets = await browser.targets();
         const extensionTarget = targets.find(t => t.url().startsWith('chrome-extension://'));
         if (!extensionTarget) {
@@ -91,7 +111,7 @@ async function recordPromo(localeKey) {
                 });
             });
         }, localeKey);
-        await page.waitForTimeout(500); // Small buffer for sync
+        await delay(500); // Small buffer for sync
 
         // Start Intro on clean screen
         await page.goto('about:blank');
@@ -114,6 +134,8 @@ async function recordPromo(localeKey) {
             document.body.appendChild(logo);
         });
 
+        console.log('Stabilizing Chromium (5s wait)...');
+        await delay(5000);
         console.log('Recording started...');
         await recorder.start(videoPath);
         const recStartTime = Date.now();
@@ -122,7 +144,7 @@ async function recordPromo(localeKey) {
             const elapsed = (Date.now() - recStartTime) / 1000;
             const remaining = targetSeconds - elapsed;
             if (remaining > 0) {
-                await page.waitForTimeout(remaining * 1000);
+                await delay(remaining * 1000);
             }
         };
         const logoBase64 = fs.readFileSync(path.join(extensionPath, 'icons/logo300.png'), { encoding: 'base64' });
@@ -165,7 +187,7 @@ async function recordPromo(localeKey) {
 
             await page.waitForSelector('#addFeedButton');
             await page.click('#addFeedButton');
-            await page.waitForTimeout(800);
+            await delay(800);
 
             const rowSelector = await page.evaluate(() => {
                 const rows = document.querySelectorAll('.feed-row');
@@ -181,9 +203,9 @@ async function recordPromo(localeKey) {
             const nameInput = await targetRow.$('.feed-name');
 
             await urlInput.type(localeData.feedUrl, { delay: 40 });
-            await page.waitForTimeout(800);
+            await delay(800);
             await nameInput.type(localeData.feedName, { delay: 40 });
-            await page.waitForTimeout(2000);
+            await delay(2000);
             await waitToMark(10); // Phase 1 must end at 10s
 
             // --- 10-18s: Phase 2 (Theme Switch) ---
@@ -191,9 +213,9 @@ async function recordPromo(localeKey) {
             await page.evaluate(() => {
                 window.scrollTo({ top: 120, behavior: 'smooth' });
             });
-            await page.waitForTimeout(1500);
+            await delay(1500);
             await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
-            await page.waitForTimeout(6500);
+            await delay(6500);
             await waitToMark(18); // Phase 2 must end at 18s
 
             // --- 18-30s: Phase 3 Overlay & 24s Sync Outro ---
@@ -278,7 +300,7 @@ async function recordPromo(localeKey) {
 
             }, localeData.features, localeData.script[localeData.script.length - 1].replace(/\.$/, ''), logoBase64);
 
-            await page.waitForTimeout(12000); // Wait until 30s mark
+            await delay(12000); // Wait until 30s mark
 
         } finally {
             await recorder.stop();
@@ -290,19 +312,26 @@ async function recordPromo(localeKey) {
     console.log(`Merging audio for ${localeKey}...`);
     // Safe Gaps: 2.5, 8.0, 13.0, 18.5, 25.0 (Branding at 25s)
     const offsets = [2.5, 8.0, 13.0, 18.5, 25.0];
-    const masterGain = 2.0;
+    // --- Standardized Premium Audio Mixing ---
+    const musicBaseline = 0.75;
 
-    let filterComplex = `[1:a]volume=0.8[bg_music];`;
+    let filterComplex = `[1:a]volume=${musicBaseline}[bg_music];`;
     let voMixInputStr = '';
     for (let i = 0; i < localeData.script.length; i++) {
-        const delay = Math.round(offsets[i] * 1000);
-        filterComplex += `[${i + 2}:a]adelay=${delay}|${delay}[v${i}];`;
+        const d = Math.round(offsets[i] * 1000);
+        filterComplex += `[${i + 2}:a]adelay=${d}|${d}[v${i}];`;
         voMixInputStr += `[v${i}]`;
     }
-    filterComplex += `${voMixInputStr}amix=inputs=${localeData.script.length}:normalize=0:dropout_transition=0,volume=${masterGain * localeData.script.length}[allvo_raw];`;
-    filterComplex += `[allvo_raw]asplit=2[allvo_duck][allvo_mix];`;
-    filterComplex += `[bg_music][allvo_duck]sidechaincompress=threshold=0.1:ratio=20:release=200:attack=15[ducked];`;
-    filterComplex += `[ducked][allvo_mix]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-16:TP=-1.5:LRA=11[final_audio]`;
+
+    // 1. Combine segments, Normalize VO stream, and split for dual use
+    filterComplex += `${voMixInputStr}amix=inputs=${localeData.script.length}:normalize=0:dropout_transition=0,loudnorm=I=-16:TP=-1.5:LRA=11,asplit=2[allvo_duck][allvo_mix];`;
+
+    // 2. Duck the music using the normalized VO (sidechain)
+    // threshold=0.03 is sensitive enough for -16 LUFS normalized VO
+    filterComplex += `[bg_music][allvo_duck]sidechaincompress=threshold=0.03:ratio=5:release=300:attack=15[ducked];`;
+
+    // 3. Final Sum (Mix ducked music + normalized VO)
+    filterComplex += `[ducked][allvo_mix]amix=inputs=2:normalize=0:weights=1|1:duration=first[final_audio]`;
 
     const voInputs = localeData.script.map((text, i) => `-i "${getVoPath(audioDir, localeKey, i, text)}"`).join(' ');
     // Added explicit re-encoding filters for stability: -c:v libx264 -pix_fmt yuv420p -r 60 -b:a 192k -ar 44100
@@ -317,7 +346,15 @@ async function recordPromo(localeKey) {
 }
 
 async function run() {
-    const targetLocales = ["en","de","ja","es","fr","pt_BR","zh_CN"];
+    let targetLocales = ["en","de","ja","es","fr","pt_BR","zh_CN"];
+
+    // LOCALE FILTERING
+    const localeArg = process.argv.find(arg => arg.startsWith('--locales=') || arg.startsWith('-l='));
+    if (localeArg) {
+        const requested = localeArg.split('=')[1].split(',');
+        targetLocales = targetLocales.filter(l => requested.includes(l));
+        console.log(`Filtering for locales: ${targetLocales.join(', ')}`);
+    }
     const finalDir = path.resolve(__dirname, '../../assets/store/video');
 
     for (const key of targetLocales) {
