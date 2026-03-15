@@ -5,6 +5,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const locales = require('./locales.json').locales;
 const crypto = require('crypto');
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function getVoPath(audioDir, localeKey, index, text) {
     const localeData = locales[localeKey];
@@ -37,6 +38,7 @@ async function recordPromo(localeKey) {
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
     const videoPath = path.join(tempDir, `video_${localeKey}.mp4`);
+    if (fs.existsSync(videoPath)) fs.unlinkSync(videoPath); // Force fresh recording
     const finalPath = path.join(finalDir, `promo_${localeKey}.mp4`);
     const music = '/Users/maik/Documents/GitHub/Extension-Conventions/src/sound/mklr_music.mp3';
 
@@ -64,7 +66,7 @@ async function recordPromo(localeKey) {
         page.on('pageerror', err => console.error(`[JavaScript Error]: ${err.message}`));
 
         // Wait for extension to load
-        await new Promise(r => setTimeout(r, 2000));
+        await delay(2000);
         const targets = await browser.targets();
         const extensionTarget = targets.find(t => t.url().startsWith('chrome-extension://'));
         if (!extensionTarget) {
@@ -91,7 +93,7 @@ async function recordPromo(localeKey) {
                 });
             });
         }, localeKey);
-        await page.waitForTimeout(500); // Small buffer for sync
+        await delay(500); // Small buffer for sync
 
         // Start Intro on clean screen
         await page.goto('about:blank');
@@ -114,6 +116,8 @@ async function recordPromo(localeKey) {
             document.body.appendChild(logo);
         });
 
+        console.log('Stabilizing Chromium (5s wait)...');
+        await delay(5000);
         console.log('Recording started...');
         await recorder.start(videoPath);
         const recStartTime = Date.now();
@@ -122,7 +126,7 @@ async function recordPromo(localeKey) {
             const elapsed = (Date.now() - recStartTime) / 1000;
             const remaining = targetSeconds - elapsed;
             if (remaining > 0) {
-                await page.waitForTimeout(remaining * 1000);
+                await delay(remaining * 1000);
             }
         };
         const logoBase64 = fs.readFileSync(path.join(extensionPath, 'icons/logo300.png'), { encoding: 'base64' });
@@ -165,7 +169,7 @@ async function recordPromo(localeKey) {
 
             await page.waitForSelector('#addFeedButton');
             await page.click('#addFeedButton');
-            await page.waitForTimeout(800);
+            await delay(800);
 
             const rowSelector = await page.evaluate(() => {
                 const rows = document.querySelectorAll('.feed-row');
@@ -181,9 +185,9 @@ async function recordPromo(localeKey) {
             const nameInput = await targetRow.$('.feed-name');
 
             await urlInput.type(localeData.feedUrl, { delay: 40 });
-            await page.waitForTimeout(800);
+            await delay(800);
             await nameInput.type(localeData.feedName, { delay: 40 });
-            await page.waitForTimeout(2000);
+            await delay(2000);
             await waitToMark(10); // Phase 1 must end at 10s
 
             // --- 10-18s: Phase 2 (Theme Switch) ---
@@ -191,9 +195,9 @@ async function recordPromo(localeKey) {
             await page.evaluate(() => {
                 window.scrollTo({ top: 120, behavior: 'smooth' });
             });
-            await page.waitForTimeout(1500);
+            await delay(1500);
             await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }]);
-            await page.waitForTimeout(6500);
+            await delay(6500);
             await waitToMark(18); // Phase 2 must end at 18s
 
             // --- 18-30s: Phase 3 Overlay & 24s Sync Outro ---
@@ -278,7 +282,7 @@ async function recordPromo(localeKey) {
 
             }, localeData.features, localeData.script[localeData.script.length - 1].replace(/\.$/, ''), logoBase64);
 
-            await page.waitForTimeout(12000); // Wait until 30s mark
+            await delay(12000); // Wait until 30s mark
 
         } finally {
             await recorder.stop();
@@ -292,11 +296,11 @@ async function recordPromo(localeKey) {
     const offsets = [2.5, 8.0, 13.0, 18.5, 25.0];
     const masterGain = 2.0;
 
-    let filterComplex = `[1:a]volume=0.8[bg_music];`;
+    let filterComplex = `[1:a]volume=0.7[bg_music];`;
     let voMixInputStr = '';
     for (let i = 0; i < localeData.script.length; i++) {
-        const delay = Math.round(offsets[i] * 1000);
-        filterComplex += `[${i + 2}:a]adelay=${delay}|${delay}[v${i}];`;
+        const d = Math.round(offsets[i] * 1000);
+        filterComplex += `[${i + 2}:a]adelay=${d}|${d}[v${i}];`;
         voMixInputStr += `[v${i}]`;
     }
     filterComplex += `${voMixInputStr}amix=inputs=${localeData.script.length}:normalize=0:dropout_transition=0,volume=${masterGain * localeData.script.length}[allvo_raw];`;
