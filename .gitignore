@@ -21,6 +21,7 @@ yarn-error.log
 # Build / Output Dirs
 dist/
 build/
+temp/
 *.zip
 *.crx
 *.pem
